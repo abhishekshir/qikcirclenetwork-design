@@ -1,0 +1,13 @@
+show ip dhcp pool 
+
+Pool BranchOffice :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 65534
+ Leased addresses               : 3
+ Excluded addresses             : 1
+ Pending event                  : none
+
+ 1 subnet is currently in the pool
+ Current index        IP address range                    Leased/Excluded/Total
+ 172.168.0.1          172.168.0.1      - 172.168.255.254   3    / 1     / 65534

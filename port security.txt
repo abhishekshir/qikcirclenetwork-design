@@ -1,0 +1,83 @@
+Switch>en
+Switch#config t 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int f0/1
+Switch(config-if)#swi
+Switch(config-if)#switchport mod
+Switch(config-if)#switchport mode ac
+Switch(config-if)#switchport mode access 
+Switch(config-if)#sw
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security ?
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security 
+Switch(config-if)#sw
+Switch(config-if)#switchport p
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security ?
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security max
+Switch(config-if)#switchport port-security maximum ?
+  <1-132>  Maximum addresses
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#?
+  cdp               Global CDP configuration subcommands
+  channel-group     Etherchannel/port bundling configuration
+  channel-protocol  Select the channel protocol (LACP, PAgP)
+  description       Interface specific description
+  duplex            Configure duplex operation.
+  exit              Exit from interface configuration mode
+  ip                Interface Internet Protocol config commands
+  lldp              LLDP interface subcommands
+  mls               mls interface commands
+  no                Negate a command or set its defaults
+  shutdown          Shutdown the selected interface
+  spanning-tree     Spanning Tree Subsystem
+  speed             Configure speed operation.
+  storm-control     storm configuration
+  switchport        Set switching mode characteristics
+  tx-ring-limit     Configure PA level transmit ring limit
+Switch(config-if)#sw
+Switch(config-if)#switchport port
+Switch(config-if)#switchport port-security ?
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security vi
+Switch(config-if)#switchport port-security violation ?
+  protect   Security violation protect mode
+  restrict  Security violation restrict mode
+  shutdown  Security violation shutdown mode
+Switch(config-if)#switchport port-security violation sh
+Switch(config-if)#switchport port-security violation shutdown ?
+  <cr>
+Switch(config-if)#switchport port-security violation shutdown 
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#sw
+Switch(config-if)#switchport mod
+Switch(config-if)#switchport mode p
+Switch(config-if)#switchport mode po
+Switch(config-if)#switchport p
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security mac
+Switch(config-if)#switchport port-security mac-address ?
+  H.H.H   48 bit mac address
+  sticky  Configure dynamic secure addresses as sticky
+Switch(config-if)#switchport port-security mac-address st
+Switch(config-if)#switchport port-security mac-address sticky ?
+  H.H.H  48 bit mac address
+  <cr>
+Switch(config-if)#switchport port-security mac-address sticky 
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#

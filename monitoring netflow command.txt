@@ -1,0 +1,190 @@
+
+Router#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3/0, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3/0.5, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3/0.5, changed state to up
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Router>en
+Router#config t 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#flo
+Router(config)#flow ex
+Router(config)#flow exporter ex1 ?
+  <cr>
+Router(config)#flow exporter ex1 
+Router(config-flow-exporter)#des
+Router(config-flow-exporter)#destination ?
+  A.B.C.D     Destination IPv4 address
+  X:X:X:X::X  Destination IPv6 address
+Router(config-flow-exporter)#destination 10.0.0.3
+Router(config-flow-exporter)#destination 10.0.0.4
+Router(config-flow-exporter)#destination 10.0.0.2
+Router(config-flow-exporter)#sou
+Router(config-flow-exporter)#source fas
+Router(config-flow-exporter)#source fastEthernet 0/1
+Router(config-flow-exporter)#tr
+Router(config-flow-exporter)#transport u
+Router(config-flow-exporter)#transport udp ?
+  <1-65535>  Port value
+Router(config-flow-exporter)#transport udp 9996
+Router(config-flow-exporter)#exit
+Router(config)#fl
+Router(config)#flow reco
+Router(config)#flow record r1
+Router(config-flow-record)#matc
+Router(config-flow-record)#match ipv
+Router(config-flow-record)#match ipv4 ?
+  destination  IPv4 destination address based fields
+  protocol     IPv4 protocol
+  source       IPv4 source address based fields
+  tos          IPv4 type of service
+Router(config-flow-record)#match ipv4 sou
+Router(config-flow-record)#match ipv4 source ?
+  address  IPv4 destination address
+Router(config-flow-record)#match ipv4 source ad
+Router(config-flow-record)#match ipv4 source address 
+Router(config-flow-record)#match ipv4 desti
+Router(config-flow-record)#match ipv4 destination ad
+Router(config-flow-record)#match ipv4 destination address 
+Router(config-flow-record)#match ipv4 ?
+  destination  IPv4 destination address based fields
+  protocol     IPv4 protocol
+  source       IPv4 source address based fields
+  tos          IPv4 type of service
+Router(config-flow-record)#match ipv4 pro
+Router(config-flow-record)#match ipv4 protocol ?
+  <cr>
+Router(config-flow-record)#match ipv4 protocol 
+Router(config-flow-record)#?
+  collect  Specify a non-key field
+  exit     Exit from Flow Record configuration mode
+  match    Specify a key field
+  no       Negate a command or set its defaults
+Router(config-flow-record)#col
+Router(config-flow-record)#collect ?
+  counter    Counter fields
+  interface  Interface fields
+  ipv4       IPv4 fields
+  ipv6       IPv6 fields
+  routing    Routing attributes
+  timestamp  Timestamp fields
+  transport  Transport layer fields
+Router(config-flow-record)#collect ti
+Router(config-flow-record)#collect timestamp 
+% Incomplete command.
+Router(config-flow-record)#collect timestamp ?
+  sys-uptime  Timestamps based on the sys-uptime
+Router(config-flow-record)#collect timestamp sy
+Router(config-flow-record)#collect timestamp sys-uptime ?
+  first  Time the first packet was seen
+  last   Time the most recent packet was seen
+Router(config-flow-record)#collect timestamp sys-uptime f
+Router(config-flow-record)#collect timestamp sys-uptime first ?
+  <cr>
+Router(config-flow-record)#collect timestamp sys-uptime first 
+Router(config-flow-record)#collect timestamp sys-uptime las
+Router(config-flow-record)#collect timestamp sys-uptime last 
+Router(config-flow-record)#?
+  collect  Specify a non-key field
+  exit     Exit from Flow Record configuration mode
+  match    Specify a key field
+  no       Negate a command or set its defaults
+Router(config-flow-record)#coll
+Router(config-flow-record)#collect ?
+  counter    Counter fields
+  interface  Interface fields
+  ipv4       IPv4 fields
+  ipv6       IPv6 fields
+  routing    Routing attributes
+  timestamp  Timestamp fields
+  transport  Transport layer fields
+Router(config-flow-record)#collect int
+Router(config-flow-record)#collect interface ?
+  input   The input interface
+  output  The output interface
+Router(config-flow-record)#collect interface in
+Router(config-flow-record)#collect interface input 
+Router(config-flow-record)#
+Router(config-flow-record)#collect interface ou
+Router(config-flow-record)#collect interface output 
+Router(config-flow-record)#exit
+Router(config)#flo
+Router(config)#flow mo
+Router(config)#flow monitor m1
+Router(config-flow-monitor)#rec
+Router(config-flow-monitor)#record r1
+Router(config-flow-monitor)#ex
+Router(config-flow-monitor)#exp
+Router(config-flow-monitor)#exporter ex1
+Router(config-flow-monitor)#exit
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#fl
+Router(config)#flow ?
+  exporter  Define a Flow Exporter
+  monitor   Define a Flow Monitor
+  record    Define a Flow Record
+Router(config)#flow ex
+Router(config)#flow exporter ?
+  WORD  Flow Exporter name
+Router(config)#config t 
+%Invalid hex value
+Router(config)#int f0/1
+Router(config-if)#fl
+Router(config-if)#ip fl
+Router(config-if)#ip flow ?
+  egress   Enable outbound NetFlow
+  ingress  Enable inbound NetFlow
+  monitor  Apply a Flow Monitor to this interface
+Router(config-if)#ip flow e
+Router(config-if)#ip flow egress 
+Router(config-if)#ip flow in
+Router(config-if)#ip flow ingress 
+Router(config-if)#ip flow mon
+Router(config-if)#ip flow monitor ?
+  WORD  User defined flow monitor
+Router(config-if)#ip flow monitor m1
+% Incomplete command.
+Router(config-if)#ip flow monitor m1 ?
+  input   Apply Flow Monitor on input traffic
+  output  Apply Flow Monitor on output traffic
+Router(config-if)#ip flow monitor m1 in
+Router(config-if)#ip flow monitor m1 input 
+Router(config-if)#ip flow monitor m1 ou
+Router(config-if)#ip flow monitor m1 output 
+Router(config-if)#

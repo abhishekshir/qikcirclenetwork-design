@@ -1,0 +1,203 @@
+Router>
+Router>en
+Router#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int f0/1
+Router(config-if)#ip ad
+Router(config-if)#ip address 172.16.1.1 255.255.255.0
+Router(config-if)#no shu
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#int f0/0
+Router(config-if)#ip add
+Router(config-if)#ip address 10.10.10.11 255.255.255.0
+Router(config-if)#no shu
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#
+Router(config)#wr
+               ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#do wr
+Building configuration...
+[OK]
+
+
+
+  ***************************VPN ipsec Command**********************
+
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#aaa
+Router(config)#aaa ?
+  accounting      Accounting configurations parameters.
+  authentication  Authentication configurations parameters.
+  authorization   Authorization configurations parameters.
+  new-model       Enable NEW access control commands and functions.(Disables
+                  OLD commands.)
+Router(config)#aaa ne
+Router(config)#aaa new-model 
+Router(config)#
+Router(config)#aaa au
+Router(config)#aaa auth
+Router(config)#aaa authen
+Router(config)#aaa authentication ?
+  enable  Set authentication lists for enable.
+  login   Set authentication lists for logins.
+  ppp     Set authentication lists for ppp.
+Router(config)#aaa authentication log
+Router(config)#aaa authentication login li
+Router(config)#aaa authentication login loc
+Router(config)#aaa authentication login loc
+Router(config)#aaa authentication login ?
+  WORD     Named authentication list.
+  default  The default authentication list.
+Router(config)#aaa authentication login abc1 loc
+Router(config)#aaa authentication login abc1 local 
+Router(config)#aa
+Router(config)#aaa auth
+Router(config)#aaa autho
+Router(config)#aaa authorization ne
+Router(config)#aaa authorization network abc2
+% Incomplete command.
+Router(config)#aaa authorization network abc2 ?
+  group             Use Server-group.
+  if-authenticated  Succeed if user has authenticated.
+  local             Use local database
+  none              No authorization (always succeeds).
+Router(config)#aaa authorization network abc2 loc
+Router(config)#aaa authorization network abc2 local 
+Router(config)#
+Router(config)#
+Router(config)#use
+Router(config)#username admin pas
+Router(config)#username admin password admin
+Router(config)#cr
+Router(config)#crypto is
+Router(config)#crypto isakmp pol
+Router(config)#crypto isakmp policy 10
+Router(config-isakmp)#en
+Router(config-isakmp)#encryption 3de
+Router(config-isakmp)#encryption 3des 
+Router(config-isakmp)#has
+Router(config-isakmp)#hash md5
+Router(config-isakmp)#authen
+Router(config-isakmp)#authentication pr
+Router(config-isakmp)#authentication pre-share 
+Router(config-isakmp)#gro
+Router(config-isakmp)#group 2
+Router(config-isakmp)#exit
+Router(config)#ip loc
+Router(config)#ip local po
+Router(config)#ip local pool vpn
+% Incomplete command.
+Router(config)#ip local pool vpn ?
+  A.B.C.D  First IP address of range
+Router(config)#ip local pool vpn 192.168.1.1 192.168.1.50
+Router(config)#cry
+Router(config)#crypto is
+Router(config)#crypto isakmp cli
+Router(config)#crypto isakmp client co
+Router(config)#crypto isakmp client configuration g
+Router(config)#crypto isakmp client configuration group cisco
+Router(config-isakmp-group)#ke
+Router(config-isakmp-group)#key cisco123
+Router(config-isakmp-group)#poo
+Router(config-isakmp-group)#pool vpn
+Router(config-isakmp-group)#exit
+Router(config)#cr
+Router(config)#crypto ips
+Router(config)#crypto ipsec tr
+Router(config)#crypto ipsec transform-set se
+Router(config)#crypto ipsec transform-set set1 ?
+  ah-md5-hmac   AH-HMAC-MD5 transform
+  ah-sha-hmac   AH-HMAC-SHA transform
+  esp-3des      ESP transform using 3DES(EDE) cipher (168 bits)
+  esp-aes       ESP transform using AES cipher
+  esp-des       ESP transform using DES cipher (56 bits)
+  esp-md5-hmac  ESP transform using HMAC-MD5 auth
+  esp-sha-hmac  ESP transform using HMAC-SHA auth
+Router(config)#crypto ipsec transform-set set1 esp-3
+Router(config)#crypto ipsec transform-set set1 esp-3des esp-md5-h
+Router(config)#crypto ipsec transform-set set1 esp-3des esp-md5-hmac 
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#cry
+Router(config)#crypto dy
+Router(config)#crypto dynamic-map map1 10
+Router(config-crypto-map)#se
+Router(config-crypto-map)#set tr
+Router(config-crypto-map)#set transform-set set1
+Router(config-crypto-map)#rever
+Router(config-crypto-map)#reverse-route 
+Router(config-crypto-map)#exit
+Router(config)#
+Router(config)#
+Router(config)#cr
+Router(config)#crypto ma
+Router(config)#crypto map map1 cli
+Router(config)#crypto map map1 client confi
+Router(config)#crypto map map1 client configuration ad
+Router(config)#crypto map map1 client configuration address re
+Router(config)#crypto map map1 client configuration address respond 
+Router(config)#
+Router(config)#
+Router(config)#cry
+Router(config)#crypto map map1 cli
+Router(config)#crypto map map1 client authen
+Router(config)#crypto map map1 client authentication li
+Router(config)#crypto map map1 client authentication list abc1
+Router(config)#crypto map map1 is
+Router(config)#crypto map map1 isakmp aut
+Router(config)#crypto map map1 isakmp authorization li
+Router(config)#crypto map map1 isakmp authorization list abc2
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#cry
+Router(config)#crypto ma
+Router(config)#crypto map1 10 ips
+Router(config)#crypto map1 10 ipse
+Router(config)#crypto map1 10 ?
+% Unrecognized command
+Router(config)#crypto map map1 10 ip
+Router(config)#crypto map map1 10 ipsec-isakmp dy
+Router(config)#crypto map map1 10 ipsec-isakmp dynamic map1
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#int f0/0
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#cr
+Router(config-if)#crypto ma
+Router(config-if)#crypto map map1
+*Jan  3 07:16:26.785: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is ON
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#

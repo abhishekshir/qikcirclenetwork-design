@@ -1,0 +1,340 @@
+Switch#config t 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#sp
+Switch(config)#spanning-tree r
+Switch(config)#spanning-tree ?
+  mode      Spanning tree operating mode
+  portfast  Spanning tree portfast options
+  vlan      VLAN Switch Spanning Tree
+Switch(config)#spanning-tree por
+Switch(config)#spanning-tree portfast ?
+  default  Enable portfast by default on all access ports
+Switch(config)#spanning-tree portfast 
+% Incomplete command.
+Switch(config)#spanning-tree portfast de
+Switch(config)#spanning-tree portfast default 
+Switch(config)#spanning-tree mo
+Switch(config)#spanning-tree mode ?
+  pvst        Per-Vlan spanning tree mode
+  rapid-pvst  Per-Vlan rapid spanning tree mode
+Switch(config)#spanning-tree mode ra
+Switch(config)#spanning-tree mode rapid-pvst 
+Switch(config)#
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+
+
+**********************************************
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#ip address 192.17.1.2 255.255.255.0
+Router(config-if)#
+Router(config-if)#int g0/1
+Router(config-if)#st
+Router(config-if)#standby ip 192.17.1.3
+Router(config-if)#
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Speak -> Standby
+******************************
+ip address 192.17.1.1 255.255.255.0
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#ip st
+Router(config-if)#st
+Router(config-if)#standby ?
+  <0-4095>  group number
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+  version   HSRP version
+Router(config-if)#standby ip 192.17.0.3 ?
+  <cr>
+Router(config-if)#standby ip 192.17.0.3 
+% Warning: address is not within a subnet on this interface
+Router(config-if)#
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Speak -> Standby
+
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Standby -> Active
+
+Router(config-if)#no standby ip 192.17.0.3 
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#no standby ip 
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#st
+Router(config-if)#standby ip 192.17.1.3
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Speak -> Standby
+
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Standby -> Active
+
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#do show standby
+GigabitEthernet0/1 - Group 0
+  State is Active
+    12 state changes, last state change 00:21:23
+  Virtual IP address is 192.17.1.3
+  Active virtual MAC address is 0000.0C07.AC00
+    Local virtual MAC address is 0000.0C07.AC00 (v1 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.627 secs
+  Preemption disabled
+  Active router is local
+  Standby router is 192.17.1.2
+  Priority 100 (default 100)
+  Group name is hsrp-Gig0/1-0 (default)
+Router(config)#
+Router(config)#
+Router(config)#st
+Router(config)#stan
+Router(config)#?
+Configure commands:
+  aaa                Authentication, Authorization and Accounting.
+  access-list        Add an access list entry
+  banner             Define a login banner
+  boot               Modify system boot parameters
+  cdp                Global CDP configuration subcommands
+  class-map          Configure Class Map
+  clock              Configure time-of-day clock
+  config-register    Define the configuration register
+  crypto             Encryption module
+  do                 To run exec commands in config mode
+  dot11              IEEE 802.11 config commands
+  enable             Modify enable password parameters
+  end                Exit from configure mode
+  exit               Exit from configure mode
+  flow               Global Flow configuration subcommands
+  hostname           Set system's network name
+  interface          Select an interface to configure
+  ip                 Global IP configuration subcommands
+  ipv6               Global IPv6 configuration commands
+  key                Key management
+  license            Configure license features
+  line               Configure a terminal line
+  lldp               Global LLDP configuration subcommands
+  logging            Modify message logging facilities
+  login              Enable secure login checking
+  mac-address-table  Configure the MAC address table
+  no                 Negate a command or set its defaults
+  ntp                Configure NTP
+  parser             Configure parser
+  policy-map         Configure QoS Policy Map
+  port-channel       EtherChannel configuration
+  priority-list      Build a priority list
+  privilege          Command privilege parameters
+  queue-list         Build a custom queue list
+  radius-server      Modify Radius query parameters
+  router             Enable a routing process
+  secure             Secure image and configuration archival commands
+  security           Infra Security CLIs
+  service            Modify use of network based services
+  snmp-server        Modify SNMP engine parameters
+  spanning-tree      Spanning Tree Subsystem
+  tacacs-server      Modify TACACS query parameters
+  username           Establish User Name Authentication
+  vpdn               Virtual Private Dialup Network
+  vpdn-group         VPDN group configuration
+Router(config)#int g0/1
+Router(config-if)#st
+Router(config-if)#standby ?
+  <0-4095>  group number
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+  version   HSRP version
+Router(config-if)#standby pr
+Router(config-if)#standby 10 ?
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+Router(config-if)#standby pr
+Router(config-if)#standby pree
+Router(config-if)#standby preempt ?
+  <cr>
+Router(config-if)#standby preempt 
+Router(config-if)#standby pro
+Router(config-if)#standby pri
+Router(config-if)#standby priority ?
+  <0-255>  Priority value
+Router(config-if)#standby priority 100
+Router(config-if)#standby tim
+Router(config-if)#standby timers ?
+  <1-254>  Hello interval in seconds
+Router(config-if)#standby timers 10
+% Incomplete command.
+Router(config-if)#standby timers 10 ?
+  <2-255>  Hold time in seconds
+Router(config-if)#standby timers 10 3
+PT ERROR: Hold time must be greater than hello
+Router(config-if)#standby timers 10 20
+Router(config-if)#ip address 192.17.1.1 255.255.255.0
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#ip st
+Router(config-if)#st
+Router(config-if)#standby ?
+  <0-4095>  group number
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+  version   HSRP version
+Router(config-if)#standby ip 192.17.0.3 ?
+  <cr>
+Router(config-if)#standby ip 192.17.0.3 
+% Warning: address is not within a subnet on this interface
+Router(config-if)#
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Speak -> Standby
+
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Standby -> Active
+
+Router(config-if)#no standby ip 192.17.0.3 
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#no standby ip 
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#st
+Router(config-if)#standby ip 192.17.1.3
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Speak -> Standby
+
+%HSRP-6-STATECHANGE: GigabitEthernet0/1 Grp 0 state Standby -> Active
+
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#do show standby
+GigabitEthernet0/1 - Group 0
+  State is Active
+    12 state changes, last state change 00:21:23
+  Virtual IP address is 192.17.1.3
+  Active virtual MAC address is 0000.0C07.AC00
+    Local virtual MAC address is 0000.0C07.AC00 (v1 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.627 secs
+  Preemption disabled
+  Active router is local
+  Standby router is 192.17.1.2
+  Priority 100 (default 100)
+  Group name is hsrp-Gig0/1-0 (default)
+Router(config)#
+Router(config)#
+Router(config)#st
+Router(config)#stan
+Router(config)#?
+Configure commands:
+  aaa                Authentication, Authorization and Accounting.
+  access-list        Add an access list entry
+  banner             Define a login banner
+  boot               Modify system boot parameters
+  cdp                Global CDP configuration subcommands
+  class-map          Configure Class Map
+  clock              Configure time-of-day clock
+  config-register    Define the configuration register
+  crypto             Encryption module
+  do                 To run exec commands in config mode
+  dot11              IEEE 802.11 config commands
+  enable             Modify enable password parameters
+  end                Exit from configure mode
+  exit               Exit from configure mode
+  flow               Global Flow configuration subcommands
+  hostname           Set system's network name
+  interface          Select an interface to configure
+  ip                 Global IP configuration subcommands
+  ipv6               Global IPv6 configuration commands
+  key                Key management
+  license            Configure license features
+  line               Configure a terminal line
+  lldp               Global LLDP configuration subcommands
+  logging            Modify message logging facilities
+  login              Enable secure login checking
+  mac-address-table  Configure the MAC address table
+  no                 Negate a command or set its defaults
+  ntp                Configure NTP
+  parser             Configure parser
+  policy-map         Configure QoS Policy Map
+  port-channel       EtherChannel configuration
+  priority-list      Build a priority list
+  privilege          Command privilege parameters
+  queue-list         Build a custom queue list
+  radius-server      Modify Radius query parameters
+  router             Enable a routing process
+  secure             Secure image and configuration archival commands
+  security           Infra Security CLIs
+  service            Modify use of network based services
+  snmp-server        Modify SNMP engine parameters
+  spanning-tree      Spanning Tree Subsystem
+  tacacs-server      Modify TACACS query parameters
+  username           Establish User Name Authentication
+  vpdn               Virtual Private Dialup Network
+  vpdn-group         VPDN group configuration
+Router(config)#int g0/1
+Router(config-if)#st
+Router(config-if)#standby ?
+  <0-4095>  group number
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+  version   HSRP version
+Router(config-if)#standby pr
+Router(config-if)#standby 10 ?
+  ip        Enable HSRP and set the virtual IP address
+  ipv6      Enable HSRP IPv6
+  preempt   Overthrow lower priority Active routers
+  priority  Priority level
+  timers    Hello and hold timers
+  track     Priority Tracking
+Router(config-if)#standby pr
+Router(config-if)#standby pree
+Router(config-if)#standby preempt ?
+  <cr>
+Router(config-if)#standby preempt 
+Router(config-if)#standby pro
+Router(config-if)#standby pri
+Router(config-if)#standby priority ?
+  <0-255>  Priority value
+Router(config-if)#standby priority 100
+Router(config-if)#standby tim
+Router(config-if)#standby timers ?
+  <1-254>  Hello interval in seconds
+Router(config-if)#standby timers 10
+% Incomplete command.
+Router(config-if)#standby timers 10 ?
+  <2-255>  Hold time in seconds
+Router(config-if)#standby timers 10 3
+PT ERROR: Hold time must be greater than hello
+Router(config-if)#standby timers 10 20
+Router(config-if)#
