@@ -1,0 +1,59 @@
+Router(config)#ACcess-list 1 DE
+Router(config)#ACcess-list 1 DEny 192.168.1.0 0.0.0.255
+Router(config)#ACcess-list 1 DEny H
+Router(config)#ACcess-list 1 DEny Host 192.168.1.2?
+A.B.C.D  
+Router(config)#ACcess-list 1 DEny Host 192.168.1.2
+Router(config)#AC
+Router(config)#ACcess-list 1 D
+Router(config)#ACcess-list 1 DEny ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#ACcess-list 1 DEny A
+Router(config)#ACcess-list 1 DEny Any ?
+  <cr>
+Router(config)#ACcess-list 1 DEny Any 
+Router(config)#ACcess-list 1 DEny ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#ACcess-list 1 PE
+Router(config)#ACcess-list 1 PErmit ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#ACcess-list 1 PErmit A
+Router(config)#ACcess-list 1 PErmit Any 
+Router(config)#
+Router(config)#EXIT
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#SHOW ACC
+Router#SHOW ACCess-lists 
+Standard IP access list 1
+    deny 192.168.1.0 0.0.0.255
+    deny host 192.168.1.2
+    deny any
+    permit any
+Router#CONF
+Router#CONFigure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#INT F
+Router(config)#INT FastEthernet 0/0
+Router(config-if)#IP AC
+Router(config-if)#IP ACcess-group 1 OU
+Router(config-if)#IP ACcess-group 1 ?
+  in   inbound packets
+  out  outbound packets
+Router(config-if)#IP ACcess-group 1 OU
+Router(config-if)#IP ACcess-group 1 OUt 
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#EXIT
+Router(config)#
+Router(config)#
+Router(config)#EXIT

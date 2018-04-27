@@ -1,0 +1,58 @@
+Router> enable
+Router# configure terminal
+Router(config)# class-map [match-all | match-any] class-name   //Creates a class to be used with a class map, and enters                                            class-map configuration mode. The class map is used for matching packets to the                                             specified class.
+                                            Note The match-all keyword specifies that all match criteria must be met. The                                              match-any keyword specifies that one of the match criterion must be met.
+
+
+QIKROUTER(config-cmap)#match access-group 10
+QIKROUTER(config-cmap)#match any
+QIKROUTER(config-cmap)#match input-interface fastEthernet 0/1
+QIKROUTER(config-cmap)#match port-type
+QIKROUTER(config-cmap)#match any 
+QIKROUTER(config-cmap)#
+QIKROUTER(config-cmap)#exit
+QIKROUTER(config)#exit
+
+
+
+policy tracker
+QIKROUTER(config)#en
+QIKROUTER(config)#en  ol  poli
+QIKROUTER(config)#policy-map qikmap
+QIKROUTER(config-pmap)#cl
+QIKROUTER(config-pmap)#class qikqos
+QIKROUTER(config-pmap-c)#?
+QoS policy-map class configuration commands:
+  bandwidth        Bandwidth
+  compression      Activate Compression
+  drop             Drop all packets
+  exit             Exit from QoS class action configuration mode
+  netflow-sampler  NetFlow action
+  no               Negate or set default values of a command
+  police           Police
+  priority         Strict Scheduling Priority for this Class
+  queue-limit      Queue Max Threshold for Tail Drop
+  random-detect    Enable Random Early Detection as drop policy
+  service-policy   Configure Flow Next
+  set              Set QoS values
+  shape            Traffic Shaping
+
+QIKROUTER(config-pmap-c)#exit
+QIKROUTER(config-pmap)#exit
+QIKROUTER(config)#inter
+QIKROUTER(config)#interface fa
+QIKROUTER(config)#interface fastEthernet 0/1
+QIKROUTER(config-if)#ser
+QIKROUTER(config-if)#service-policy ?
+  history  Keep history of QoS metrics
+  input    Assign policy-map to the input of an interface
+  output   Assign policy-map to the output of an interface
+
+QIKROUTER(config-if)#service-policy ou
+QIKROUTER(config-if)#service-policy output ?
+  WORD  policy-map name
+
+QIKROUTER(config-if)#service-policy output qikmap
+QIKROUTER#show policy-map
+  Policy Map qikmap
+    Class qikqos

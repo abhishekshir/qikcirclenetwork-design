@@ -1,0 +1,196 @@
+Press RETURN to get started!
+
+
+
+Router>en
+Router#
+Router#
+Router#conf
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int f0/0
+Router(config-if)#no sh
+Router(config-if)#no shutdown 
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#line ?
+  <0-81>   First Line number
+  console  Primary terminal line
+  vty      Virtual terminal
+Router(config)#line con
+Router(config)#line console ?
+  <0-0>  First Line number
+Router(config)#line console 0
+Router(config-line)#passw
+Router(config-line)#password ccna
+Router(config-line)#login
+Router(config-line)#
+Router(config-line)#
+Router(config-line)#exit
+Router(config)#
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#exit
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+User Access Verification
+
+Password: 
+
+Router>en
+Router#conf
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#li
+Router(config)#pass
+Router(config)#?
+Configure commands:
+  aaa              Authentication, Authorization and Accounting.
+  access-list      Add an access list entry
+  banner           Define a login banner
+  boot             Modify system boot parameters
+  cdp              Global CDP configuration subcommands
+  class-map        Configure Class Map
+  clock            Configure time-of-day clock
+  config-register  Define the configuration register
+  crypto           Encryption module
+  do               To run exec commands in config mode
+  enable           Modify enable password parameters
+  end              Exit from configure mode
+  exit             Exit from configure mode
+  hostname         Set system's network name
+  interface        Select an interface to configure
+  ip               Global IP configuration subcommands
+  line             Configure a terminal line
+  logging          Modify message logging facilities
+  no               Negate a command or set its defaults
+  ntp              Configure NTP
+  policy-map       Configure QoS Policy Map
+  priority-list    Build a priority list
+  privilege        Command privilege parameters
+  queue-list       Build a custom queue list
+  radius-server    Modify Radius query parameters
+  router           Enable a routing process
+  service          Modify use of network based services
+  snmp-server      Modify SNMP engine parameters
+  tacacs-server    Modify TACACS query parameters
+  username         Establish User Name Authentication
+Router(config)#
+Router(config)#se
+Router(config)#service ?
+  nagle                Enable Nagle's congestion control algorithm
+  password-encryption  Encrypt system passwords
+  timestamps           Timestamp debug/log messages
+Router(config)#service pa
+Router(config)#service password-encryption ?
+  <cr>
+Router(config)#service password-encryption 
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#sh
+Router#show ru
+Router#show running-config 
+Building configuration...
+
+Current configuration : 440 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ shutdown
+!
+interface Serial0/1
+ no ip address
+ shutdown
+!
+ip classless
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password 7 08224F4008
+ login
+line vty 0 4
+ login
+!
+!
+!
+end

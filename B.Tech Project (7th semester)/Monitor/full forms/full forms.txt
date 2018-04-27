@@ -1,0 +1,2 @@
+NBAR- network based application recognisation
+QOS- quality of service

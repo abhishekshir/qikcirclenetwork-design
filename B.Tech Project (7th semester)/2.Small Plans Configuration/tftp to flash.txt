@@ -1,0 +1,127 @@
+Press RETURN to get started!
+
+
+
+Router>
+Router>
+Router>en
+Router#config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#no ip domain lookup
+Router(config)#int 
+Router(config)#int f0/0
+Router(config-if)#ip addres
+Router(config-if)#ip address 10.0.0.1 255.0.0.0
+Router(config-if)#no shut 
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#copy ?
+  flash:          Copy from flash: file system
+  ftp:            Copy from ftp: file system
+  running-config  Copy from current system configuration
+  startup-config  Copy from startup configuration
+  tftp:           Copy from tftp: file system
+Router#sh version
+Cisco Internetwork Operating System Software
+IOS (tm) C2600 Software (C2600-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+Image text-base: 0x8000808C, data-base: 0x80A1FECC
+
+ROM: System Bootstrap, Version 12.1(3r)T2, RELEASE SOFTWARE (fc1)
+Copyright (c) 2000 by cisco Systems, Inc.
+ROM: C2600 Software (C2600-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+
+System returned to ROM by reload
+System image file is "flash:c2600-i-mz.122-28.bin"
+
+cisco 2620 (MPC860) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID JAD05190MTZ (4292891495)
+M860 processor: part number 0, mask 49
+Bridging software.
+X.25 software, Version 3.0.0.
+1 FastEthernet/IEEE 802.3 interface(s)
+2 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#show flash
+
+System flash directory:
+File  Length   Name/status
+  3   5571584  c2600-i-mz.122-28.bin
+  2   28282    sigdef-category.xml
+  1   227537   sigdef-default.xml
+[5827403 bytes used, 58188981 available, 64016384 total]
+63488K bytes of processor board System flash (Read/Write)
+
+
+Router#copy ?
+  flash:          Copy from flash: file system
+  ftp:            Copy from ftp: file system
+  running-config  Copy from current system configuration
+  startup-config  Copy from startup configuration
+  tftp:           Copy from tftp: file system
+Router#copy flash t?
+tftp:  
+Router#show flash tftp
+                  ^
+% Invalid input detected at '^' marker.
+	
+Router#copy flash tftp
+Source filename []? c2600-i-mz.122-28.bin
+Address or name of remote host []? 
+?Host name or address not specified
+
+Router#copy flash tftp
+Source filename []? c2600-i-mz.122-28.bin
+Address or name of remote host []? 10.0.0.2
+Destination filename [c2600-i-mz.122-28.bin]? 
+
+Writing c2600-i-mz.122-28.bin...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[OK - 5571584 bytes]
+
+5571584 bytes copied in 3.375 secs (1650000 bytes/sec)
+Router#copy tftp ?
+  flash:          Copy to flash: file system
+  running-config  Copy configuration from system
+  startup-config  Copy startup configuration from system
+Router#copy tftp flash
+Address or name of remote host []? c2600-i-mz.122-28.bin
+Source filename []? 
+?File name not specified
+%Error parsing filename (Unknown error 0)
+
+Router#copy tftp flash
+Address or name of remote host []? 10.0.0.1
+Source filename []? c2600-i-mz.122-28.bin
+Destination filename [c2600-i-mz.122-28.bin]? 
+%Warning:There is a file already existing with this name
+Do you want to over write? [confirm]
+Erase flash: before copying? [confirm]
+Erasing the flash filesystem will remove all files! Continue? [confirm]
+Erasing device... eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee ...erased 
+Erase of flash: complete
+Accessing tftp://10.0.0.1/c2600-i-mz.122-28.bin........
+%Error opening tftp://10.0.0.1/c2600-i-mz.122-28.bin (Timed out)

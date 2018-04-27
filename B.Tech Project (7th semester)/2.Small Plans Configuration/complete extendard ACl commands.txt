@@ -1,0 +1,40 @@
+Router(config)#access-list 100 deny tcp host 192.168.1.0 host 192.168.3.10 eq 80?
+<0-65535>  
+Router(config)#access-list 100 deny tcp host 192.168.1.0 host 192.168.3.10 eq 80
+Router(config)#ac
+Router(config)#access-list 100 p
+Router(config)#access-list 100 permit an
+Router(config)#access-list 100 permit any any 
+                                       ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#access-list 100 permit ?
+  ahp    Authentication Header Protocol
+  eigrp  Cisco's EIGRP routing protocol
+  esp    Encapsulation Security Payload
+  gre    Cisco's GRE tunneling
+  icmp   Internet Control Message Protocol
+  ip     Any Internet Protocol
+  ospf   OSPF routing protocol
+  tcp    Transmission Control Protocol
+  udp    User Datagram Protocol
+Router(config)#access-list 100 permit ip an
+Router(config)#access-list 100 permit ip any an
+Router(config)#access-list 100 permit ip any any ?
+  dscp        Match packets with given dscp value
+  precedence  Match packets with given precedence value
+  <cr>
+Router(config)#access-list 100 permit ip any any 
+Router(config)#int f
+Router(config)#int fastEthernet 0/0
+Router(config-if)#ac
+Router(config-if)#ip ac
+Router(config-if)#ip access-group 100 ?
+  in   inbound packets
+  out  outbound packets
+Router(config-if)#ip access-group 100 in 
+Router(config-if)#exit
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#^Z

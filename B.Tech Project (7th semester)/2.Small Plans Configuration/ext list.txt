@@ -1,0 +1,147 @@
+Router>en
+Router>enable 
+Router#
+Router#
+Router#config
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#ac
+Router(config)#access-list ?
+  <1-99>     IP standard access list
+  <100-199>  IP extended access list
+Router(config)#access-list na
+Router(config)#access-list 100 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+Router(config)#access-list 100 de
+Router(config)#access-list 100 deny ?
+  ahp    Authentication Header Protocol
+  eigrp  Cisco's EIGRP routing protocol
+  esp    Encapsulation Security Payload
+  gre    Cisco's GRE tunneling
+  icmp   Internet Control Message Protocol
+  ip     Any Internet Protocol
+  ospf   OSPF routing protocol
+  tcp    Transmission Control Protocol
+  udp    User Datagram Protocol
+Router(config)#access-list 100 deny tc
+Router(config)#access-list 100 deny tcp ?
+  A.B.C.D  Source address
+  any      Any source host
+  host     A single source host
+Router(config)#access-list 100 deny tcp ho
+Router(config)#access-list 100 deny tcp host 192.168.1.2 ?
+  A.B.C.D  Destination address
+  any      Any destination host
+  eq       Match only packets on a given port number
+  gt       Match only packets with a greater port number
+  host     A single destination host
+  lt       Match only packets with a lower port number
+  neq      Match only packets not on a given port number
+  range    Match only packets in the range of port numbers
+Router(config)#access-list 100 deny tcp host 192.168.1.2 e
+Router(config)#access-list 100 deny tcp host 192.168.1.2 eq 80
+% Incomplete command.
+Router(config)#access-list 100 deny tcp host 192.168.1.2 eq 80 ?
+  A.B.C.D  Destination address
+  any      Any destination host
+  host     A single destination host
+Router(config)#access-list 100 deny tcp host 192.168.1.2 host
+Router(config)#access-list 100 deny tcp host 192.168.1.2 host 192.168.2.10 eq
+Router(config)#access-list 100 deny tcp host 192.168.1.2 host 192.168.2.10 eq 80?
+<0-65535>  
+Router(config)#access-list 100 deny tcp host 192.168.1.2 host 192.168.2.10 eq 80
+Router(config)#ac
+Router(config)#access-list 100per
+Router(config)#access-list 100 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+Router(config)#access-list 100 per
+Router(config)#access-list 100 permit ?
+  ahp    Authentication Header Protocol
+  eigrp  Cisco's EIGRP routing protocol
+  esp    Encapsulation Security Payload
+  gre    Cisco's GRE tunneling
+  icmp   Internet Control Message Protocol
+  ip     Any Internet Protocol
+  ospf   OSPF routing protocol
+  tcp    Transmission Control Protocol
+  udp    User Datagram Protocol
+Router(config)#access-list 100 permit ip an
+Router(config)#access-list 100 permit ip any an
+Router(config)#access-list 100 permit ip any any ?
+  dscp        Match packets with given dscp value
+  precedence  Match packets with given precedence value
+  <cr>
+Router(config)#access-list 100 permit ip any any 
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#sh ac
+Router#sh access-lists 
+Extended IP access list 100
+    deny tcp host 192.168.1.2 host 192.168.2.10 eq www
+    permit ip any any
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#int f0/0
+Router(config-if)#ip ac
+Router(config-if)#ip access-group 100 in
+Router(config-if)#ip access-group 100 ?
+  in   inbound packets
+  out  outbound packets
+Router(config-if)#ip access-group 100 in
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)# ex
+
+%SYS-5-CONFIG_I: Configured from console by console
+Router#
+Router#
+Router#sh ac
+Router#sh access-lists 
+Extended IP access list 100
+    deny tcp host 192.168.1.2 host 192.168.2.10 eq www (12 match(es))
+    permit ip any any (4 match(es))
+Router#config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#no ac
+Router(config)#no access-list 100
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#sh ip acc
+Router#sh ip access-lists 
+Router#wr
+Building configuration...
+[OK]
+Router#
+Router#

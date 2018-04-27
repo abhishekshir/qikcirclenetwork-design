@@ -1,0 +1,194 @@
+Router(config)#flow record NTARecord
+Router(config-flow-record)#mat
+Router(config-flow-record)#match ipv4 sou
+Router(config-flow-record)#match ipv4 source des
+Router(config-flow-record)#match ipv4 source add
+Router(config-flow-record)#match ipv4 des add
+Router(config-flow-record)#match ipv4 des address 
+Router(config-flow-record)#
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Router>en
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#mat
+Router(config)#fl
+Router(config)#flow re
+Router(config)#flow record NTARecord
+Router(config-flow-record)#mat
+Router(config-flow-record)#match ?
+  flow       Flow identifying fields
+  interface  Interface fields
+  ipv4       IPv4 fields
+  ipv6       IPv6 fields
+  transport  Transport layer fields
+Router(config-flow-record)#match t
+Router(config-flow-record)#match transport ?
+  destination-port  Transport destination port
+  source-port       Transport source port
+Router(config-flow-record)#match transport des
+Router(config-flow-record)#match transport destination-port 
+Router(config-flow-record)#match transport so
+Router(config-flow-record)#match transport source-port 
+Router(config-flow-record)#mat
+Router(config-flow-record)#match in
+Router(config-flow-record)#match interface ?
+  input   The input interface
+  output  The output interface
+Router(config-flow-record)#match interface in
+Router(config-flow-record)#match interface input 
+Router(config-flow-record)#match interface ou
+Router(config-flow-record)#match interface output 
+Router(config-flow-record)#
+Router(config-flow-record)#
+Router(config-flow-record)#mat
+Router(config-flow-record)#match ipv4 tos
+Router(config-flow-record)#ma
+Router(config-flow-record)#coll
+Router(config-flow-record)#collect co
+Router(config-flow-record)#collect counter ?
+  bytes    Total number of bytes
+  packets  Total number of packets
+Router(config-flow-record)#collect counter by
+Router(config-flow-record)#collect counter bytes 
+Router(config-flow-record)#collect counter pac
+Router(config-flow-record)#collect counter packets 
+Router(config-flow-record)#
+Router(config-flow-record)#
+Router(config-flow-record)#
+Router(config-flow-record)#fl
+Router(config-flow-record)#flo
+Router(config-flow-record)#flo
+Router(config-flow-record)#flow exporter NTAExport
+Router(config-flow-exporter)#exit
+Router(config)#flow exporter NTAExport
+Router(config-flow-exporter)#des
+Router(config-flow-exporter)#destination  172.30.0.1
+Router(config-flow-exporter)#so
+Router(config-flow-exporter)#source f
+Router(config-flow-exporter)#source fastEthernet 0/0
+Router(config-flow-exporter)#tr
+Router(config-flow-exporter)#transport ud
+Router(config-flow-exporter)#transport udp ?
+  <1-65535>  Port value
+Router(config-flow-exporter)#transport udp 2055
+Router(config-flow-exporter)#exit
+Router(config)#fl
+Router(config)#flow ?
+  exporter  Define a Flow Exporter
+  monitor   Define a Flow Monitor
+  record    Define a Flow Record
+Router(config)#flow mon
+Router(config)#flow monitor NTAMonitor
+Router(config-flow-monitor)#re
+Router(config-flow-monitor)#record NT
+Router(config-flow-monitor)#record NTAExport
+% Flow Monitor: no such record exist
+Router(config-flow-monitor)#?
+  exit      Exit from Flow Monitor configuration mode
+  exporter  Add an Exporter to use to export records
+  no        Negate a command or set its defaults
+  record    Specify Flow Record to use to define Cache
+Router(config-flow-monitor)#r
+Router(config-flow-monitor)#record ?
+  WORD              User defined
+  netflow-original  Traditional IPv4 input NetFlow with origin ASs
+Router(config-flow-monitor)#record 
+% Incomplete command.
+Router(config-flow-monitor)#record ne
+Router(config-flow-monitor)#record netflow-original ?
+  <cr>
+Router(config-flow-monitor)#record netflow-original 
+Router(config-flow-monitor)#cac
+Router(config-flow-monitor)#cache tim
+Router(config-flow-monitor)#cache timeout active 60
+                            ^
+% Invalid input detected at '^' marker.
+	
+Router(config-flow-monitor)#exi
+Router(config)#
+Router(config)#int
+Router(config)#interface f0/0
+Router(config-if)#ip fl
+Router(config-if)#ip flow en
+Router(config-if)#ip flow e
+Router(config-if)#ip flow egress 
+Router(config-if)#
+Router(config-if)#ip flow i
+Router(config-if)#ip flow ingress 
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#ip fl
+Router(config-if)#ip flow ?
+  egress   Enable outbound NetFlow
+  ingress  Enable inbound NetFlow
+  monitor  Apply a Flow Monitor to this interface
+Router(config-if)#ip flow mo
+Router(config-if)#ip flow monitor ?
+  WORD  User defined flow monitor
+Router(config-if)#ip flow monitor NTAMonitor
+% Incomplete command.
+Router(config-if)#ip flow monitor NTAMonitor ?
+  input   Apply Flow Monitor on input traffic
+  output  Apply Flow Monitor on output traffic
+Router(config-if)#ip flow monitor NTAMonitor in
+Router(config-if)#ip flow monitor NTAMonitor input 
+Router(config-if)#ip flow monitor NTAMonitor ou
+Router(config-if)#ip flow monitor NTAMonitor output 
+Router(config-if)#exit
+Router#show ip cache flow 
+IP packet size distribution (10 total packets):
+   1-32   64   96  128  160  192  224  256  288  320  352  384  416  448  480
+   .000 .000 .000 1.00 .000 .000 .000 .000 .000 .000 .000 .000 .000 .000 .000 
+
+    512  544  576 1024 1536 2048 2560 3072 3584 4096 4608
+   .000 .000 .000 .000 .000 .000 .000 .000 .000 .000 .000 
+
+IP Flow Switching Cache, 278544 bytes
+  0 active, 4096 inactive, 1 added
+  6 ager polls, 0 flow alloc failures
+  Active flows timeout in 30 minutes
+  Inactive flows timeout in 15 seconds
+IP Sub Flow Cache, 34056 bytes
+  0 active, 1024 inactive, 0 added, 0 added to flow
+  0 alloc failures, 0 force free
+  1 chunk, 1 chunk added
+  last clearing of statistics never
+Protocol         Total    Flows   Packets Bytes  Packets Active(Sec) Idle(Sec)
+--------         Flows     /Sec     /Flow  /Pkt     /Sec     /Flow     /Flow
+ICMP                 1      0.0        10   128      0.0       9.0   87551.0
+Total:               1      0.0        10   128      0.0       9.0   87551.0
+
+SrcIf         SrcIPaddress    DstIf         DstIPaddress    Pr SrcP DstP  Pkts
+Router#

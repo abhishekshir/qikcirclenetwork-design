@@ -1,0 +1,76 @@
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#ex
+Switch(config-if)#exit 
+Switch(config)#vt
+Switch(config)#vtp d
+Switch(config)#vtp domain jet
+Switch(config)#vtp domain jetking
+Changing VTP domain name from NULL to jetking
+Switch(config)#vl
+Switch(config)#vlan 10
+Switch(config-vlan)#nam
+Switch(config-vlan)#name  sales
+Switch(config-vlan)#^Z
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#config
+Switch#configure t
+Switch#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#vl
+Switch(config)#vlan 30
+Switch(config-vlan)#NAM
+Switch(config-vlan)#NAMe MARKETING
+Switch(config-vlan)#
+
+
+
+
+
+
+
+
+Switch con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+

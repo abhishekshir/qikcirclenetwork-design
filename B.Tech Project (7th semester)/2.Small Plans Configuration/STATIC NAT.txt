@@ -1,0 +1,200 @@
+Router(config-if)#
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+%LINK-5-CHANGED: Interface Serial0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#CONFI
+Router#CONFIgure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#ROU
+Router(config)#ROUter R
+Router(config)#ROUter Rip 
+Router(config-router)#V
+Router(config-router)#Version 2
+Router(config-router)#
+Router(config-router)#
+Router(config-router)#
+Router(config-router)#NET
+Router(config-router)#NETwork 10.0.0.0
+Router(config-router)#NET
+Router(config-router)#NETwork 122.1.1.0
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#SH
+Router#SHow NA
+Router#SHow NAT ?
+% Unrecognized command
+Router#SHow IP ?
+  access-lists  List access lists
+  arp           IP ARP table
+  bgp           BGP information
+  dhcp          Show items in the DHCP database
+  eigrp         IP-EIGRP show commands
+  interface     IP interface status and configuration
+  nat           IP NAT information
+  nbar          Network-Based Application Recognition
+  ospf          OSPF information
+  protocols     IP routing protocol process parameters and statistics
+  rip           IP RIP show commands
+  route         IP routing table
+  ssh           Information on SSH
+Router#SHow IP NAT
+Router#SHow IP NAT ?
+  statistics    Translation statistics
+  translations  Translation entries
+Router#SHow IP NAT TR
+Router#SHow IP NAT TRanslations 
+Router#CONF
+Router#CONFigure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#IP NAT
+Router(config)#IP NAT ?
+  inside   Inside address translation
+  outside  Outside address translation
+  pool     Define pool of addresses
+Router(config)#IP NAT INS
+Router(config)#IP NAT INSide ?
+  source  Source address translation
+Router(config)#IP NAT INSide SO
+Router(config)#IP NAT INSide SOurce ?
+  list    Specify access list describing local addresses
+  static  Specify static local->global mapping
+Router(config)#IP NAT INSide SOurce ST
+Router(config)#IP NAT INSide SOurce STatic ?
+  A.B.C.D  Inside local IP address
+  tcp      Transmission Control Protocol
+  udp      User Datagram Protocol
+Router(config)#IP NAT INSide SOurce STatic 10.0.0.2 ?
+  A.B.C.D  Inside global IP address
+Router(config)#IP NAT INSide SOurce STatic 10.0.0.2 122.1.1.2 ?
+  <cr>
+Router(config)#IP NAT INSide SOurce STatic 10.0.0.2 122.1.1.2 
+Router(config)#IP NAT INSide SOurce STatic 10.0.0.3 122.1.1.3 
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#SH IP NAT
+Router#SH IP NAT TR
+Router#SH IP NAT TRanslations 
+Pro  Inside global     Inside local       Outside local      Outside global
+---  122.1.1.2         10.0.0.2           ---                ---
+---  122.1.1.3         10.0.0.3           ---                ---
+
+Router#CONF
+Router#CONFigure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#INT F0/0
+Router(config-if)#IP NAT ?
+  inside   Inside interface for address translation
+  outside  Outside interface for address translation
+Router(config-if)#IP NAT IN
+Router(config-if)#IP NAT INside 
+Router(config-if)#INT
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#INT S0/0
+           ^
+% Invalid input detected at '^' marker.
+	
+Router#CONFIG
+Router#CONFIGure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#INT S0/0
+Router(config-if)#IP NAT OU
+Router(config-if)#IP NAT OUtside 
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#SH IP NA
+Router#SH IP NAt T
+Router#SH IP NAt Translations 
+Pro  Inside global     Inside local       Outside local      Outside global
+---  122.1.1.2         10.0.0.2           ---                ---
+---  122.1.1.3         10.0.0.3           ---                ---
+
+Router#SH IP NAt Translations 
+Pro  Inside global     Inside local       Outside local      Outside global
+icmp 122.1.1.2:1       10.0.0.2:1         204.1.1.10:1       204.1.1.10:1
+icmp 122.1.1.2:2       10.0.0.2:2         204.1.1.10:2       204.1.1.10:2
+icmp 122.1.1.2:3       10.0.0.2:3         204.1.1.10:3       204.1.1.10:3
+icmp 122.1.1.2:4       10.0.0.2:4         204.1.1.10:4       204.1.1.10:4
+---  122.1.1.2         10.0.0.2           ---                ---
+---  122.1.1.3         10.0.0.3           ---                ---
+
+Router#SH IP NAt Translations 
+Pro  Inside global     Inside local       Outside local      Outside global
+---  122.1.1.2         10.0.0.2           ---                ---
+---  122.1.1.3         10.0.0.3           ---                ---
+tcp 122.1.1.2:1026     10.0.0.2:1026      204.1.1.10:80      204.1.1.10:80
+
+Router#SH IP NAt Translations 
+Pro  Inside global     Inside local       Outside local      Outside global
+---  122.1.1.2         10.0.0.2           ---                ---
+---  122.1.1.3         10.0.0.3           ---                ---
+tcp 122.1.1.2:1026     10.0.0.2:1026      204.1.1.10:80      204.1.1.10:80
+tcp 122.1.1.3:1025     10.0.0.3:1025      204.1.1.10:80      204.1.1.10:80
+
+Router#

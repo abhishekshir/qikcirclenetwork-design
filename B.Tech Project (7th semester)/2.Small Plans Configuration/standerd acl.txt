@@ -1,0 +1,106 @@
+Router#
+Router#CONFIG
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#AC
+Router(config)#ACcess-list ?
+  <1-99>     IP standard access list
+  <100-199>  IP extended access list
+Router(config)#ACcess-list 1 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+Router(config)#ACcess-list 1 DE
+Router(config)#ACcess-list 1 DEny ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#ACcss-list 1 DEny 192.168.1.0 ?
+  A.B.C.D  Wildcard bits
+  <cr>
+Router(config)#ACcess-list 1 DEny ho
+Router(config)#ACcess-list 1 DEny host ?
+  A.B.C.D  Host address
+Router(config)#ACcess-list 1 DEny host 192.168.1.2 ?
+  <cr>
+Router(config)#ACcess-list 1 DEny host 192.168.1.2 
+Router(config)#as
+Router(config)#ac
+Router(config)#access-list 1 de
+Router(config)#access-list 1 deny 
+% Incomplete command.
+Router(config)#access-list 1 deny ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#access-list 1 deny a
+Router(config)#access-list 1 deny any ?
+  <cr>
+Router(config)#access-list 1 de
+Router(config)#access-list 1 deny pe
+Router(config)#access-list 1 deny per
+Router(config)#ac
+Router(config)#access-list 1 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+Router(config)#access-list 1 per
+Router(config)#access-list 1 permit ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#access-list 1 permit a
+Router(config)#access-list 1 permit any ?
+  <cr>
+Router(config)#access-list 1 permit any 
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#sh ac
+Router#sh access-lists 
+Standard IP access list 1
+    deny host 192.168.1.2
+    permit any
+Router#confi
+Router#configure t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int f0/0
+Router(config-if)#ip ac
+Router(config-if)#ip access-group 1 ?
+  in   inbound packets
+  out  outbound packets
+Router(config-if)#ip access-group 1 ou
+Router(config-if)#ip access-group 1 out 
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#net
+Router#config
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#rou
+Router(config)#router r
+Router(config)#router rip 
+Router(config-router)#v
+Router(config-router)#version 2
+Router(config-router)#version 2
+Router(config-router)#net
+Router(config-router)#network 20.0.0.0
+Router(config-router)#net
+Router(config-router)#network 192.168.3.0
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console

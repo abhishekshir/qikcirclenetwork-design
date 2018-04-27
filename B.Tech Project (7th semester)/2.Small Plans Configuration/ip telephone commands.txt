@@ -1,0 +1,131 @@
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#ip dh
+Router(config)#ip dhcp p
+Router(config)#ip dhcp pool TELEPHONE
+Router(dhcp-config)#?
+  default-router  Default routers
+  dns-server      Set name server
+  exit            Exit from DHCP pool configuration mode
+  network         Network number and mask
+  no              Negate a command or set its defaults
+  option          Raw DHCP options
+Router(dhcp-config)#de
+Router(dhcp-config)#ne
+Router(dhcp-config)#network 10.0.0.0 255.0.0.0
+Router(dhcp-config)#dn
+Router(dhcp-config)#def
+Router(dhcp-config)#default-router 10.0.0.1 ?
+  <cr>
+Router(dhcp-config)#default-router 10.0.0.1 
+Router(dhcp-config)#op
+Router(dhcp-config)#option ?
+  <0-254>  DHCP option code
+Router(dhcp-config)#option 150 ip 10.0.0.1
+Router(dhcp-config)#exit
+Router(config)#
+Router(config)#
+Router(config)#tele
+Router(config)#telephony-service 
+Router(config-telephony)#ma
+Router(config-telephony)#max
+Router(config-telephony)#max-
+Router(config-telephony)#max-?
+max-dn  max-ephones  
+Router(config-telephony)#max-e
+Router(config-telephony)#max-ephones 5
+Router(config-telephony)#max-dn 5
+Router(config-telephony)#ip sou
+Router(config-telephony)#ip source-address 10.0.0.1 ?
+  port  Define tcp port for Telephony Service/CM FALLBACK
+Router(config-telephony)#ip source-address 10.0.0.1 p
+Router(config-telephony)#ip source-address 10.0.0.1 port 2000
+Router(config-telephony)#?
+  auto             Define dn range for auto assignment
+  auto-reg-ephone  Enable Ephone Auto-Registration
+  create           create cnf for ethernet phone
+  exit             Exit from telephony config mode
+  ip               Define IP address and port for Telephony-Service/Fallback
+  keepalive        Define keepalive timeout period to unregister IP phones
+  max-dn           Maximum directory numbers supported
+  max-ephones      Define max number of IP phones
+  no               Negate or set default values of a command
+Router(config-telephony)#au
+Router(config-telephony)#aut
+Router(config-telephony)#auto ass
+Router(config-telephony)#auto assign ?
+  <1-144>  start dn tag
+Router(config-telephony)#auto assign 4 to 6
+Router(config-telephony)#auto assign 1 to 5
+Router(config-telephony)#exit
+Router(config)#
+Router(config)#
+Router(config)#eph
+Router(config)#epho
+Router(config)#ephone-dn 1
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 1.1, changed state to up
+
+Router(config-ephone-dn)#
+Router(config-ephone-dn)#num
+Router(config-ephone-dn)#number 1001
+Router(config-ephone-dn)#epho
+Router(config-ephone-dn)#ephone-dn 2
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 2.1, changed state to up
+
+Router(config-ephone-dn)#nu
+Router(config-ephone-dn)#number 1002
+Router(config-ephone-dn)#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch(config)#int ran f0/1 - 24
+Switch(config)#int rang
+Switch(config)#int range f0/1 -24
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport mo
+Switch(config-if-range)#switchport mode ac
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport ?
+  access         Set access mode characteristics of the interface
+  mode           Set trunking mode of the interface
+  native         Set trunking native characteristics when interface is in
+                 trunking mode
+  nonegotiate    Device will not engage in negotiation protocol on this
+                 interface
+  port-security  Security related command
+  priority       Set appliance 802.1p priority
+  trunk          Set trunking characteristics of the interface
+  voice          Voice appliance attributes
+Switch(config-if-range)#switchport vo
+Switch(config-if-range)#switchport voice ?
+  vlan  Vlan for voice traffic
+Switch(config-if-range)#switchport voice vl
+Switch(config-if-range)#switchport voice vlan ?
+  <1-1005>  Vlan for voice traffic
+Switch(config-if-range)#switchport voice vlan 1
+Switch(config-if-range)#
+Switch(config-if-range)#exit
+Switch(config)#
+Switch(config)#
+Switch(config)#

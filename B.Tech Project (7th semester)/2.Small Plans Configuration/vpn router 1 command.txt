@@ -1,0 +1,286 @@
+crypto ?
+  dynamic-map  Specify a dynamic crypto map template
+  ipsec        Configure IPSEC policy
+  isakmp       Configure ISAKMP policy
+  key          Long term key operations
+  map          Enter a crypto map 
+Router(config)#crypto is
+Router(config)#crypto isakmp ?
+  client  Set client configuration policy
+  enable  Enable ISAKMP
+  key     Set pre-shared key for remote peer
+  policy  Set policy for an ISAKMP protection suite
+Router(config)#crypto isakmp e
+Router(config)#crypto isakmp enable 
+Router(config)#cr
+Router(config)#crypto is
+Router(config)#crypto isakmp ?
+  client  Set client configuration policy
+  enable  Enable ISAKMP
+  key     Set pre-shared key for remote peer
+  policy  Set policy for an ISAKMP protection suite
+Router(config)#crypto isakmp o
+Router(config)#crypto isakmp p
+Router(config)#crypto isakmp policy ?
+  <1-10000>  Priority of protection suite
+Router(config)#crypto isakmp policy 10
+Router(config-isakmp)#?
+  authentication  Set authentication method for protection suite
+  encryption      Set encryption algorithm for protection suite
+  exit            Exit from ISAKMP protection suite configuration mode
+  group           Set the Diffie-Hellman group
+  hash            Set hash algorithm for protection suite
+  lifetime        Set lifetime for ISAKMP security association
+  no              Negate a command or set its defaults
+Router(config-isakmp)#
+
+Router(config-isakmp)#authentication ?
+  pre-share  Pre-Shared Key
+Router(config-isakmp)#authentication re
+Router(config-isakmp)#authentication p
+Router(config-isakmp)#ha
+Router(config-isakmp)#hash ?
+  md5  Message Digest 5
+  sha  Secure Hash Standard
+Router(config-isakmp)#hash sh
+Router(config-isakmp)#hash sha 
+Router(config-isakmp)#a
+Router(config-isakmp)#authentication p
+Router(config-isakmp)#authentication pre-share 
+Router(config-isakmp)#g
+Router(config-isakmp)#group 1 
+Router(config-isakmp)#li
+Router(config-isakmp)#lifetime 3600
+Router(config-isakmp)#en
+Router(config-isakmp)#encryption ae
+Router(config-isakmp)#encryption aes 256
+Router(config-isakmp)#end
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#sh  isa
+Router#sh cr
+Router#sh crypto is
+Router#sh crypto isakmp o
+Router#sh crypto isakmp o
+Router#sh crypto isakmp p
+Router#sh crypto isakmp policy 
+
+Global IKE policy
+Protection suite of priority 10
+        encryption algorithm:    AES - Advanced Encryption Standard (256 bit keys).
+        hash algorithm:         Secure Hash Standard
+        authentication method:  Pre-Shared Key
+        Diffie-Hellman group:   #1 (768 bit)
+        lifetime:               3600 seconds, no volume limit
+Default protection suite
+        encryption algorithm:   DES - Data Encryption Standard (56 bit keys).
+        hash algorithm:         Secure Hash Standard
+        authentication method:  Rivest-Shamir-Adleman Signature
+        Diffie-Hellman group:   #1 (768 bit)
+        lifetime:               86400 seconds, no volume limit
+Router#wr
+Building configuration...
+[OK]
+Router#con
+Router#conf
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#cr
+Router(config)#crypto is
+Router(config)#crypto isakmp k
+Router(config)#crypto isakmp key ?
+  WORD  The UNENCRYPTED (cleartext) user password
+Router(config)#crypto isakmp key 0 cisco1234 ad
+Router(config)#crypto isakmp key cisco123 add
+Router(config)#crypto isakmp key cisco123 address 30.0.0.2 ?
+  A.B.C.D  Peer IP subnet mask
+  <cr>
+Router(config)#crypto isakmp key cisco123 address 30.0.0.2 
+Router(config)#
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router(config)#crypto ipsec transform-set 50 esp-aes 256 esp-sha-hmac 
+Router(config)#ex
+Router(config)#exit 
+ac
+Router(config)#access-list 101 p
+Router(config)#access-list 101 permit i
+Router(config)#access-list 101 permit ip 10.0.0.0 0.255.255.255 40.0.0.0 0.255.255.255
+Router(config)#cr
+Router(config)#crypto m
+Router(config)#crypto map c
+Router(config)#crypto map cm
+Router(config)#crypto map cma
+Router(config)#crypto map cmap 10
+Could not find a crypto map entry cmap 10 to modify
+Router(config)#crypto map cmap 10 ip
+Router(config)#crypto map cmap 10 ipsec-isakmp 
+% NOTE: This new crypto map will remain disabled until a peer
+        and a valid access list have been configured.
+Router(config-crypto-map)#ma
+Router(config-crypto-map)#match a
+Router(config-crypto-map)#match address 101
+Router(config-crypto-map)#se
+Router(config-crypto-map)#set p
+Router(config-crypto-map)#set pe
+Router(config-crypto-map)#set peer 30.0.0.2
+Router(config-crypto-map)#s
+Router(config-crypto-map)#set p
+Router(config-crypto-map)#set pf
+Router(config-crypto-map)#set pfs gr
+Router(config-crypto-map)#set pfs gr
+Router(config-crypto-map)#set pfs gro
+Router(config-crypto-map)#set pfs gro ?
+% Ambiguous command: "set pfs gro "
+Router(config-crypto-map)#set pfs gro?
+group1  group2  group5  
+Router(config-crypto-map)#set pfs grou
+Router(config-crypto-map)#set pfs group1
+Router(config-crypto-map)#se
+Router(config-crypto-map)#set r
+Router(config-crypto-map)#set t
+Router(config-crypto-map)#set transform-set  50
+Router(config-crypto-map)#se
+Router(config-crypto-map)#set se
+Router(config-crypto-map)#set security-association li
+Router(config-crypto-map)#set security-association lifetime  se
+Router(config-crypto-map)#set security-association lifetime  seconds 900
+Router(config-crypto-map)# exi
+Router(config-crypto-map)# exit 
+Router(config)#
+Router(config)#int s0/0/1
+Router(config-if)#cr
+Router(config-if)#crypto ma
+Router(config-if)#crypto map cm
+Router(config-if)#crypto map cmap
+*Jan  3 07:16:26.785: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is ON
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#sh cr
+Router#sh crypto ip
+Router#sh crypto ipsec tr
+Router#sh crypto ipsec transform-set 
+Transform set 50: {    { esp-256-aes esp-sha-hmac  }
+   will negotiate = { Tunnel,  },
+
+
+Router#sh cr
+Router#sh crypto m
+Router#sh crypto map 
+Crypto Map cmap 10 ipsec-isakmp
+        Peer = 30.0.0.2
+        Extended IP access list 101
+            access-list 101 permit ip 10.0.0.0 0.255.255.255 40.0.0.0 0.255.255.255
+        Current peer: 30.0.0.2
+        Security association lifetime: 4608000 kilobytes/900 seconds
+        PFS (Y/N): Y
+        Transform sets={
+                50,
+        }
+        Interfaces using crypto map cmap:
+                Serial0/0/1
+
+Router#sh cr
+Router#sh crypto is
+Router#sh crypto isakmp s
+Router#sh crypto isakmp sa 
+IPv4 Crypto ISAKMP SA
+dst             src             state          conn-id slot status
+
+IPv6 Crypto ISAKMP SA
+
+Router#sh cr
+Router#sh crypto ip
+% Incomplete command.
+Router#sh crypto ip ?
+  sa             IPSEC SA table
+  transform-set  Crypto transform sets
+Router#sh crypto ip sa
+
+interface: Serial0/0/1
+    Crypto map tag: cmap, local addr 0.0.0.0
+
+   protected vrf: (none)
+   local  ident (addr/mask/prot/port): (10.0.0.0/255.0.0.0/0/0)
+   remote  ident (addr/mask/prot/port): (40.0.0.0/255.0.0.0/0/0)
+   current_peer 30.0.0.2 port 500
+    PERMIT, flags={origin_is_acl,}
+   #pkts encaps: 0, #pkts encrypt: 0, #pkts digest: 0
+   #pkts decaps: 0, #pkts decrypt: 0, #pkts verify: 0
+   #pkts compressed: 0, #pkts decompressed: 0
+   #pkts not compressed: 0, #pkts compr. failed: 0
+   #pkts not decompressed: 0, #pkts decompress failed: 0
+   #send errors 0, #recv errors 0
+
+     local crypto endpt.: 0.0.0.0, remote crypto endpt.:30.0.0.2
+     path mtu 1500, ip mtu 1500, ip mtu idb Serial0/0/1
+     current outbound spi: 0x0(0)
+
+     inbound esp sas:
+
+     inbound ah sas:
+
+     inbound pcp sas:
+
+     outbound esp sas:
+
+     outbound ah sas:
+
+     outbound pcp sas:
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#sh cr
+Router#sh crypto is
+Router#sh crypto isakmp sa
+IPv4 Crypto ISAKMP SA
+dst             src             state          conn-id slot status
+
+IPv6 Crypto ISAKMP SA
+
+Router#sh crypto isakmp sa
+IPv4 Crypto ISAKMP SA
+dst             src             state          conn-id slot status
+
+IPv6 Crypto ISAKMP SA
+
+Router#ping 40.0.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 40.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 47/59/63 ms
+
+Router#ping 40.0.0.2
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 40.0.0.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 65/88/94 ms
+
+Router#sh crypto isakmp sa
+IPv4 Crypto ISAKMP SA
+dst             src             state          conn-id slot status
+
+IPv6 Crypto ISAKMP SA
+
+Router#

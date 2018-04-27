@@ -1,0 +1,541 @@
+outer#
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#int s0/0
+Router(config-if)#en
+Router(config-if)#encapsulation fr
+Router(config-if)#encapsulation frame-relay 
+Router(config-if)#fr
+Router(config-if)#frame-relay ?
+  interface-dlci  Define a DLCI on an interface/subinterface
+  lmi-type        Use CISCO-ANSI-CCITT type LMI
+  map             Map a protocol address to a DLCI address
+Router(config-if)#frame-relay l
+Router(config-if)#frame-relay lmi-type c
+Router(config-if)#frame-relay lmi-type cisco 
+Router(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/0, changed state to up
+
+Router(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+Router(config-if)#ex
+Router(config-if)#exit 
+Router(config)#int s0/0 ?
+  multipoint      Treat as a multipoint link
+  point-to-point  Treat as a point-to-point link
+  <cr>
+Router(config)#int s0/0.?
+  <0-4294967295>  Serial interface number
+Router(config)#int s0/0.1 p
+Router(config)#int s0/0.1 point-to-point ?
+  <cr>
+Router(config)#int s0/0.1 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.1, changed state to up
+Router(config-subif)#ip add
+Router(config-subif)#ip address 10.0.0.1 255.0.0.0
+Router(config-subif)#fr
+Router(config-subif)#frame-relay d
+Router(config-subif)#frame-relay dl
+Router(config-subif)#frame-relay dlc
+Router(config-subif)#frame-relay ?
+  interface-dlci  Define a DLCI on an interface/subinterface
+  map             Map a protocol address to a DLCI address
+Router(config-subif)#frame-relay in
+Router(config-subif)#frame-relay interface-dlci 102 ?
+  <cr>
+Router(config-subif)#frame-relay interface-dlci 102 
+Router(config-subif)#int s0/0.2 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.2, changed state to up
+Router(config-subif)#frame-relay interface-dlci 103
+Router(config-subif)#ip add
+Router(config-subif)#ip address 20.0.0.1 255.0.0.0
+Router(config-subif)#ex
+Router(config-subif)#exit 
+Router(config)#
+Router(config)#
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router>enable 
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#rou
+Router(config)#router r
+Router(config)#router rip 
+Router(config-router)#v
+Router(config-router)#version 2
+Router(config-router)#
+Router(config-router)#
+Router(config-router)#
+Router(config-router)#
+Router(config-router)#net
+Router(config-router)#network 10.0.0.0
+Router(config-router)#ne
+Router(config-router)#network 20.0.0.0
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#ping 30.0.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 30.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 47/78/125 ms
+
+Router#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For Router 2
+
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2600 Software (C2600-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+
+cisco 2620 (MPC860) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID JAD05190MTZ (4292891495)
+M860 processor: part number 0, mask 49
+Bridging software.
+X.25 software, Version 3.0.0.
+1 FastEthernet/IEEE 802.3 interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+
+         --- System Configuration Dialog ---
+
+Continue with configuration dialog? [yes/no]: System Bootstrap, Version 12.1(3r)T2, RELEASE SOFTWARE (fc1)
+Copyright (c) 2000 by cisco Systems, Inc.
+cisco 2620 (MPC860) processor (revision 0x200) with 60416K/5120K bytes of memory
+
+Self decompressing the image :
+########################################################################## [OK]
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2600 Software (C2600-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+
+cisco 2620 (MPC860) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID JAD05190MTZ (4292891495)
+M860 processor: part number 0, mask 49
+Bridging software.
+X.25 software, Version 3.0.0.
+1 FastEthernet/IEEE 802.3 interface(s)
+1 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+
+         --- System Configuration Dialog ---
+
+Continue with configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router>enable 
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#int s0/0
+Router(config-if)#no sh
+Router(config-if)#no shutdown 
+
+%LINK-5-CHANGED: Interface Serial0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#ex
+Router(config-if)#en
+Router(config-if)#encapsulation f
+Router(config-if)#encapsulation frame-relay 
+Router(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+Router(config-if)#fr
+Router(config-if)#frame-relay l
+Router(config-if)#frame-relay lmi-type c
+Router(config-if)#frame-relay lmi-type cisco 
+Router(config-if)#no sh
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to down
+
+Router(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#ex
+Router(config-if)#exit 
+Router(config)#
+Router(config)#int s0/0.1 p
+Router(config)#int s0/0.1 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.1, changed state to up
+Router(config-subif)#ip add
+Router(config-subif)#ip address  10.0.0.2 255.0.0.0
+Router(config-subif)#fr
+Router(config-subif)#frame-relay in
+Router(config-subif)#frame-relay interface-dlci 201
+Router(config-subif)#int s0/0.2 p
+Router(config-subif)#int s0/0.2 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.2, changed state to up
+Router(config-subif)#ip add
+Router(config-subif)#ip address 30.0.0.1 255.0.0.0
+Router(config-subif)#fr
+Router(config-subif)#frame-relay in
+Router(config-subif)#frame-relay interface-dlci 203
+Router(config-subif)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#sh ip int br
+Router#sh ip int brief 
+Interface              IP-Address      OK? Method Status                Protocol
+ 
+FastEthernet0/0        unassigned      YES unset  administratively down down
+ 
+Serial0/0              unassigned      YES unset  up                    up
+ 
+Serial0/0.1            10.0.0.2        YES manual up                    up
+ 
+Serial0/0.2            30.0.0.1        YES manual up                    up
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#rou
+Router(config)#router r
+Router(config)#router rip 
+Router(config-router)#v
+Router(config-router)#version 2
+Router(config-router)#ne
+Router(config-router)#network 10.0.0.0
+Router(config-router)#net
+Router(config-router)#network 30.0.0.0
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For Router 3
+
+
+
+
+
+.
+Processor board ID JAD05190MTZ (4292891495)
+M860 processor: part number 0, mask 49
+Bridging software.
+X.25 software, Version 3.0.0.
+1 FastEthernet/IEEE 802.3 interface(s)
+1 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+
+         --- System Configuration Dialog ---
+
+Continue with configuration dialog? [yes/no]: n0
+% Please answer 'yes' or 'no'.
+Continue with configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>
+Router>en
+Router>enable 
+Router#
+Router#
+Router#
+Router#
+Router#confi
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#int s0/0
+Router(config-if)#no
+% Incomplete command.
+Router(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#en
+Router(config-if)#encapsulation fr
+Router(config-if)#encapsulation frame-relay 
+Router(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+Router(config-if)#fr
+Router(config-if)#frame-relay l
+Router(config-if)#frame-relay lmi-type c
+Router(config-if)#frame-relay lmi-type cisco 
+Router(config-if)#int
+Router(config-if)#ex
+Router(config-if)#exit 
+Router(config)#int s0/0.1 p
+Router(config)#int s0/0.1 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.1, changed state to up
+Router(config-subif)#ip add
+Router(config-subif)#ip address 20.0.0.2 255.0.0.0
+Router(config-subif)#fr
+Router(config-subif)#frame-relay in
+Router(config-subif)#frame-relay interface-dlci 301
+Router(config-subif)#int s0/0.2 point-to-point 
+
+%LINK-5-CHANGED: Interface Serial0/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0.2, changed state to up
+Router(config-subif)#frame-relay interface-dlci 302
+Router(config-subif)#ip add
+Router(config-subif)#ip address 30.0.0.2 255.0.0.0
+Router(config-subif)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#sh ip int br
+Router#sh ip int brief 
+Interface              IP-Address      OK? Method Status                Protocol
+ 
+FastEthernet0/0        unassigned      YES unset  administratively down down
+ 
+Serial0/0              unassigned      YES unset  up                    up
+ 
+Serial0/0.1            20.0.0.2        YES manual up                    up
+ 
+Serial0/0.2            30.0.0.2        YES manual up                    up
+Router#ping 20.0.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 20.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 62/62/63 ms
+
+Router#ping 30.0.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 30.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 62/62/63 ms
+
+Router#ping 10.0.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+
+Router#conf
+Router#configure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#ro
+Router(config)#router r
+Router(config)#router rip 
+Router(config-router)#v
+Router(config-router)#version 2
+Router(config-router)#net
+Router(config-router)#network 20.0.0.0
+Router(config-router)#ne
+Router(config-router)#network 30.0.0.0
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console

@@ -1,0 +1,100 @@
+Switch(config)#
+Switch(config)#
+Switch(config)#int f0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport mo
+Switch(config-if)#switchport mode ac
+Switch(config-if)#switchport mode access 
+Switch(config-if)#sw
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security 
+Switch(config-if)#sw
+Switch(config-if)#switchport s
+Switch(config-if)#switchport se
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security mac
+Switch(config-if)#switchport port-security mac-address max 1 ?
+% Unrecognized command
+Switch(config-if)#switchport port-security mac-address 1
+                                                       ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-if)#switchport port-security ?
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security max
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#sw
+Switch(config-if)#switchport p
+Switch(config-if)#switchport po
+Switch(config-if)#switchport port-security mac
+Switch(config-if)#switchport port-security mac-address st
+Switch(config-if)#switchport port-security mac-address sticky 
+Switch(config-if)#switchport port-security ?
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security vio
+Switch(config-if)#switchport port-security violation sh
+Switch(config-if)#switchport port-security violation shutdown 
+Switch(config-if)#^Z
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#
+Switch#sh ru
+Switch#sh running-config 
+Building configuration...
+
+Current configuration : 1165 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+
+interface FastEthernet0/1
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0001.9641.B966
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ --More-- 
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down

@@ -1,0 +1,26 @@
+Router(config-if)#exit
+Router(config)#
+Router(config)#line v
+Router(config)#line vty ?
+  <0-15>  First Line number
+Router(config)#line vty 0
+Router(config-line)#exit
+Router(config)#line v
+Router(config)#line vty ?
+  <0-15>  First Line number
+Router(config)#line vty 0 5
+Router(config-line)#pass
+Router(config-line)#password 123
+Router(config-line)#login
+Router(config-line)#exit
+Router(config)#line
+Router(config)#line vt
+Router(config)#line vty 0
+Router(config-line)#enable pass
+Router(config-line)#enable password ccna
+Router(config)#exit
+
+
+
+
+telnet ..............

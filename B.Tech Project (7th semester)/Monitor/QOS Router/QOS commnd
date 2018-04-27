@@ -1,0 +1,1062 @@
+sh
+QIKROUTER#show start
+QIKROUTER#show startup-config 
+Using 1890 out of 196600 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname QIKROUTER
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$Pf1v$CCNKpL5c48tE8b.ZMQr2R/
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+no aaa new-model
+ip subnet-zero
+ip cef
+!
+!
+ip dhcp excluded-address 192.168.0.1 192.168.0.30
+!
+ip dhcp pool qpool
+   network 192.168.0.0 255.255.255.0
+   default-router 192.168.0.1 
+   dns-server 103.56.228.140 103.56.229.130 
+   lease 2
+!
+!
+no ip domain lookup
+ip domain name qikcircle.com
+ip ssh version 2
+vpdn enable
+!
+vpdn-group 1
+ request-dialin
+  protocol pppoe
+!
+no ftp-server write-enable
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username qik secret 5 $1$cdT/$RJrWl9J4urY3F5UyMTvUZ0
+username qikroom privilege 15 password 7 1511021F07250B757A60
+!
+!
+!
+!
+interface FastEthernet0/0
+ description This is WAN Port
+ no ip address
+ duplex auto
+ speed auto
+ pppoe enable
+ pppoe-client dial-pool-number 10
+!
+interface FastEthernet0/1
+ description This is LAN Port
+ ip address 192.168.0.1 255.255.255.0
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface Dialer1
+ ip address negotiated
+ ip nat outside
+ encapsulation ppp
+ dialer pool 10
+ dialer-group 1
+ ppp authentication chap callin
+ ppp chap hostname qikroom
+ ppp chap password 7 025756085F5359
+ ppp pap sent-username qikroom password 7 08701E1D5D4C53
+ ppp ipcp route default
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 FastEthernet0/0
+!
+!
+ip http server
+ip http authentication local
+ip http secure-server
+ip nat inside source list 1 interface Dialer1 overload
+!
+logging 192.168.0.5
+access-list 1 permit 192.168.0.0 0.0.0.255
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password 7 04681F0716104545294A5746
+ login
+line aux 0
+line vty 0 4
+ password 7 04681F071610454529485744
+ login local
+ transport input telnet ssh
+line vty 5 15
+ login local
+!
+end
+
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#sh
+QIKROUTER#show ac
+QIKROUTER#show acc   ?
+  aaa                       Show AAA values
+  aal2                      Show commands for AAL2
+  access-expression         List access expression
+  access-lists              List access lists
+  accounting                Accounting data for active sessions
+  adjacency                 Adjacent nodes
+  aliases                   Display alias commands
+  alignment                 Show alignment information
+  archive                   Archive of the running configuration information
+  arp                       ARP table
+  async                     Information on terminal lines used as router
+                            interfaces
+  audit                     Router Audit
+  auto                      Show Automation Template
+  backhaul-session-manager  Backhaul Session Manager information
+  backup                    Backup status
+  bgp                       BGP information
+  bridge                    Bridge Forwarding/Filtering Database [verbose]
+  buffers                   Buffer pool statistics
+  calendar                  Display the hardware calendar
+  call                      Show call
+  call-manager-fallback     Show call-manager fallback configuration & stats
+  caller                    Display information about dialup connections
+  cca                       CCA information
+  ccm-manager               Call Manager Application information
+  cdapi                     CDAPI information
+  cdp                       CDP information
+  cef                       Cisco Express Forwarding
+  class-map                 Show QoS Class Map
+  clns                      CLNS network information
+  clock                     Display the system clock
+  cls                       DLC user information
+  cns                       CNS agents
+  compress                  Show compression statistics
+  configuration             Contents of Non-Volatile memory
+  connection                Show Connection
+  context                   Show context information about recent crash(s)
+  controllers               Interface controller status
+  cops                      COPS information
+  crm                       Carrier Resource Manager info
+  crypto                    Encryption module
+  dampening                 Display dampening information 
+  debugging                 State of each debugging option
+  derived-config            Derived operating configuration
+  dhcp                      Dynamic Host Configuration Protocol status
+  diag                      Show diagnostic information for port
+                            adapters/modules
+  dial-peer                 Dial Plan Mapping Table for, e.g. VoIP Peers
+  dialer                    Dialer parameters and statistics
+  dialplan                  Voice telephony dial plan
+  dnsix                     Shows Dnsix/DMDP information
+  dot1x                     IEEE 802.1X
+  dspfarm                   Display DSPFARM related information 
+  dss                       DSS information
+  dtp                       DTP information
+  dxi                       atm-dxi information
+  entry                     Queued terminal entries
+  environment               Environmental monitor statistics
+  ephone                    Show all or one ephone status
+  ephone-dn                 Show all or one IP phone line
+  ephone-hunt               Show all or one hunt group
+  errdisable                Error disable
+  event                     Event related commands
+  event-manager             Event manager information
+  exception                 exception information
+  fb-its-log                Call-Manager-Fallback or IP Telephony Service Log
+  file                      Show filesystem information
+  flash:                    display information about flash: file system
+  flow-sampler              Display the flow samplers configured
+  frame-relay               Frame-Relay information
+  funi                      FUNI information
+  gateway                   Show status of gateway
+  glbp                      GLBP information
+  h323                      Show H.323 VoIP information
+  hardware                  Hardware specific information
+  history                   Display the session command history
+  hosts                     IP domain-name, lookup style, nameservers, and host
+                            table
+  html                      HTML helper commands
+  http                      Display HTTP info
+  idb                       List of Interface Descriptor Blocks
+  interfaces                Interface status and configuration
+  inventory                 Show the physical inventory
+  ip                        IP information
+  isis                      IS-IS routing information
+  iua                       ISDN User Adaptation Layer information
+  key                       Key information
+  kron                      Kron Subsystem
+  l2cac                     L2 CAC
+  l2tun                     Layer 2 tunnel information
+  line                      TTY line information
+  llc2                      IBM LLC2 circuit information
+  location                  Display the system location
+  logging                   Show the contents of logging buffers
+  login                     Display Secure Login Configurations and State
+  mac-address-table         MAC forwarding table
+  management                Display the management applications
+  media                     Display media related information 
+  memory                    Memory statistics
+  mgcp                      Display Media Gateway Control Protocol information 
+  microcode                 show configured microcode for downloadable hardware
+  mls                       multilayer switching information
+  mmi                       mmi configuration
+  modem                     Show modem
+  modemcap                  Show Modem Capabilities database
+  monitor                   Monitoring different system events
+  mpoa                      MPOA show commands
+  mrcp                      MRCP information
+  mwi                       mwi related information
+  nbf                       NBF (NetBEUI) information
+  netbios-cache             NetBIOS name cache contents
+  ntp                       Network time protocol
+  num-exp                   Number Expansion (Speed Dial) information
+  oer                       Optimized Exit Routing information
+  parser                    Display parser information
+  pas                       Port Adaptor Information
+  pci                       PCI Information
+  platform                  Show platform information
+  pm                        Show Port Manager commands
+  policy-manager            Policy Manager
+  policy-map                Show QoS Policy Map
+  ppp                       PPP parameters and statistics
+  pppatm                    PPP over ATM
+  pppoe                     PPPoE information
+  printers                  Show LPD printer information
+  privilege                 Show current privilege level
+  processes                 Active process statistics
+  protocols                 Active network routing protocols
+  qdm                       Show information about QoS Device Manager
+  queue                     Show queue contents
+  queueing                  Show queueing configuration
+  radius                    Shows radius information
+  random-detect-group       display random-detect group
+  rbscp                     RBSCP information
+  region                    Region Manager Status
+  registry                  Function registry information
+  reload                    Scheduled reload information
+  rhosts                    Remote-host+user equivalences
+  rif                       RIF cache entries
+  rlm                       Show RLM
+  rmon                      rmon statistics
+  rom-monitor               show ROMMON region information
+  route-map                 route-map information
+  rpms-proc                 RPMS Process Information
+  rtpspi                    RTP Service Provider Interface
+  rtr                       Service Assurance Agent (SAA)
+  rtsp                      Real Time Streaming Protocol information
+  rudpv1                    Rudpv1 information
+  running-config            Current operating configuration
+  saa                       Service Assurance Agent information
+  sccp                      Display Skinny Client Control Protocol information 
+  scp                       SCP commands
+  sdllc                     Display sdlc - llc2 conversion information
+  sdspfarm                  Show dspfarm status from SCCP server
+  secure                    Show secure image and configuration archive
+  sessions                  Information about Telnet connections
+  sgbp                      SGBP group information
+  sip-ua                    Show SIP User Agent
+  slm                       XML data structure information
+  smf                       Software MAC filter
+  snapshot                  Snapshot parameters and statistics
+  snmp                      snmp statistics
+  sntp                      Simple network time protocol
+  source-bridge             Source-bridge parameters and statistics
+  spanning-tree             Spanning tree topology
+  srcp                      Display SRCP Protocol information 
+  ssh                       Status of SSH server connections
+  ssl                       Show SSL command
+  sss                       SSS Information
+  stacks                    Process stack utilization
+  standby                   Hot Standby Router Protocol (HSRP) information
+  startup-config            Contents of startup configuration
+  storm-control             Show packet storm control configuration
+  subscriber-policy         Subscriber policy
+  subscription              Subscription information to show
+  subsys                    Show subsystem information
+  table-map                 Show Table Map
+  tacacs                    Shows tacacs+ server statistics 
+  tarp                      TARP information
+  tcp                       Status of TCP connections
+  tdm                       TDM connection information
+  tech-support              Show system information for Tech-Support
+  telephony-service         Show Cisco IOS Telephony Service Configuration &
+                            Stats
+  template                  Template information
+  terminal                  Display terminal configuration parameters
+  tgrep                     Show TGREP information
+  time-range                Time range
+  track                     Tracking information
+  traffic-shape             traffic rate shaping configuration
+  translate                 Protocol translation information
+  translation-rule          Show translation rule table
+  trunk                     Trunk info
+  users                     Display information about terminal lines
+  vc-group                  Show VC Group
+  version                   System hardware and software status
+  vlan-range                VLAN Range
+  vlan-switch               VTP VLAN status
+  vlans                     Virtual LANs Information
+  voice                     Voice port configuration & stats
+  voip                      Voice over Internet Protocol information
+  vpdn                      VPDN information
+  vrrp                      VRRP information
+  vsp                       Voice Streaming Processing information
+  vtemplate                 Virtual Template interface information
+  vtp                       VTP information
+  warm-reboot               Show Warm Reboot related information
+  whoami                    Info on current tty line
+  wrr-queue                 WRR queue
+  x25                       X.25 information
+  x29                       X.29 information
+
+QIKROUTER#show acce
+QIKROUTER#show access-li
+QIKROUTER#show access-lists 
+Standard IP access list 1
+    10 permit 192.168.0.0, wildcard bits 0.0.0.255 (2721323 matches)
+QIKROUTER#Standard IP access list 1
+             ^
+% Invalid input detected at '^' marker.
+
+QIKROUTER#    10 permit 192.168.0.0, wildcard bits 0.0.0.255 (2721323 matches$it 192.168.0.0, wildcard bits 0.0.0.255 (2721323 matches)                                                                      10 per          confi
+QIKROUTER#configure t
+Enter configuration commands, one per line.  End with CNTL/Z.
+QIKROUTER(config)#clas
+QIKROUTER(config)#class-map ?
+  WORD       class-map name
+  match-all  Logical-AND all matching statements under this classmap
+  match-any  Logical-OR all matching statements under this classmap
+
+QIKROUTER(config)#class-map qikqos        mat
+QIKROUTER(config)#class-map match-al
+QIKROUTER(config)#class-map match-all 
+% Incomplete command.
+
+QIKROUTER(config)#class-map match-all ?
+  WORD  class-map name
+
+QIKROUTER(config)#class-map match-all qikqos
+QIKROUTER(config-cmap)#?
+QoS class-map configuration commands:
+  description  Class-Map description
+  exit         Exit from QoS class-map configuration mode
+  match        classification criteria
+  no           Negate or set default values of a command
+  rename       Rename this class-map
+
+QIKROUTER(config-cmap)#mat
+QIKROUTER(config-cmap)#match ac
+QIKROUTER(config-cmap)#match access-group ?
+  <1-2699>  Access list index
+  name      Named Access List
+
+QIKROUTER(config-cmap)#match access-group 10
+QIKROUTER(config-cmap)#mat
+QIKROUTER(config-cmap)#match an
+QIKROUTER(config-cmap)#match any ?
+  <cr>
+
+QIKROUTER(config-cmap)#match any 
+QIKROUTER(config-cmap)#match cl
+QIKROUTER(config-cmap)#match class-map qikqos
+Circular class-map is not allowed
+QIKROUTER(config-cmap)#match class-map qikqos1
+Class-map qikqos1 not configured
+QIKROUTER(config-cmap)#match class-map qikqos1          ap ?
+  WORD  Match class-map name
+
+QIKROUTER(config-cmap)#match class-map                 matc
+QIKROUTER(config-cmap)#match ?
+  access-group         Access group
+  any                  Any packets
+  class-map            Class map
+  cos                  IEEE 802.1Q/ISL class of service/user priority values
+  destination-address  Destination address
+  discard-class        Discard behavior identifier
+  dscp                 Match DSCP in IP(v4) and IPv6 packets
+  fr-de                Match on Frame-relay DE bit
+  fr-dlci              Match on fr-dlci
+  input-interface      Select an input interface to match
+  ip                   IP specific values
+  mpls                 Multi Protocol Label Switching specific values
+  not                  Negate this match result
+  packet               Layer 3 Packet length
+  precedence           Match Precedence in IP(v4) and IPv6 packets
+  protocol             Protocol
+  qos-group            Qos-group
+  source-address       Source address
+
+QIKROUTER(config-cmap)#match in
+QIKROUTER(config-cmap)#match input-interface ?
+  Async              Async interface
+  BVI                Bridge-Group Virtual Interface
+  CDMA-Ix            CDMA Ix interface
+  CTunnel            CTunnel interface
+  Dialer             Dialer interface
+  FastEthernet       FastEthernet IEEE 802.3
+  Group-Async        Async Group interface
+  Lex                Lex interface
+  Loopback           Loopback interface
+  MFR                Multilink Frame Relay bundle interface
+  Multilink          Multilink-group interface
+  Null               Null interface
+  Tunnel             Tunnel interface
+  Vif                PGM Multicast Host interface
+  Virtual-PPP        Virtual PPP interface
+  Virtual-Template   Virtual Template interface
+  Virtual-TokenRing  Virtual TokenRing
+
+QIKROUTER(config-cmap)#match input-interface fa
+QIKROUTER(config-cmap)#match input-interface fastEthernet 0/1
+QIKROUTER(config-cmap)#?
+QoS class-map configuration commands:
+  description  Class-Map description
+  exit         Exit from QoS class-map configuration mode
+  match        classification criteria
+  no           Negate or set default values of a command
+  rename       Rename this class-map
+
+QIKROUTER(config-cmap)#mat
+QIKROUTER(config-cmap)#match po
+QIKROUTER(config-cmap)#match por
+QIKROUTER(config-cmap)#match port-type ?
+% Unrecognized command
+QIKROUTER(config-cmap)#match port-type              ch ?
+  access-group         Access group
+  any                  Any packets
+  class-map            Class map
+  cos                  IEEE 802.1Q/ISL class of service/user priority values
+  destination-address  Destination address
+  discard-class        Discard behavior identifier
+  dscp                 Match DSCP in IP(v4) and IPv6 packets
+  fr-de                Match on Frame-relay DE bit
+  fr-dlci              Match on fr-dlci
+  input-interface      Select an input interface to match
+  ip                   IP specific values
+  mpls                 Multi Protocol Label Switching specific values
+  not                  Negate this match result
+  packet               Layer 3 Packet length
+  precedence           Match Precedence in IP(v4) and IPv6 packets
+  protocol             Protocol
+  qos-group            Qos-group
+  source-address       Source address
+
+QIKROUTER(config-cmap)#match any ?
+  <cr>
+
+QIKROUTER(config-cmap)#match any 
+QIKROUTER(config-cmap)#
+QIKROUTER(config-cmap)#exit
+QIKROUTER(config)#exit
+QIKROUTER#sh
+*Nov 22 11:50:15.564: %SYS-5-CONFIG_I: Configured from console by console
+QIKROUTER#show ?
+  aaa                       Show AAA values
+  aal2                      Show commands for AAL2
+  access-expression         List access expression
+  access-lists              List access lists
+  accounting                Accounting data for active sessions
+  adjacency                 Adjacent nodes
+  aliases                   Display alias commands
+  alignment                 Show alignment information
+  archive                   Archive of the running configuration information
+  arp                       ARP table
+  async                     Information on terminal lines used as router
+                            interfaces
+  audit                     Router Audit
+  auto                      Show Automation Template
+  backhaul-session-manager  Backhaul Session Manager information
+  backup                    Backup status
+  bgp                       BGP information
+  bridge                    Bridge Forwarding/Filtering Database [verbose]
+  buffers                   Buffer pool statistics
+  calendar                  Display the hardware calendar
+  call                      Show call
+  call-manager-fallback     Show call-manager fallback configuration & stats
+  caller                    Display information about dialup connections
+  cca                       CCA information
+  ccm-manager               Call Manager Application information
+  cdapi                     CDAPI information
+  cdp                       CDP information
+  cef                       Cisco Express Forwarding
+  class-map                 Show QoS Class Map
+  clns                      CLNS network information
+  clock                     Display the system clock
+  cls                       DLC user information
+  cns                       CNS agents
+  compress                  Show compression statistics
+  configuration             Contents of Non-Volatile memory
+  connection                Show Connection
+  context                   Show context information about recent crash(s)
+  controllers               Interface controller status
+  cops                      COPS information
+  crm                       Carrier Resource Manager info
+  crypto                    Encryption module
+  dampening                 Display dampening information 
+  debugging                 State of each debugging option
+  derived-config            Derived operating configuration
+  dhcp                      Dynamic Host Configuration Protocol status
+  diag                      Show diagnostic information for port
+                            adapters/modules
+  dial-peer                 Dial Plan Mapping Table for, e.g. VoIP Peers
+  dialer                    Dialer parameters and statistics
+  dialplan                  Voice telephony dial plan
+  dnsix                     Shows Dnsix/DMDP information
+  dot1x                     IEEE 802.1X
+  dspfarm                   Display DSPFARM related information 
+  dss                       DSS information
+  dtp                       DTP information
+  dxi                       atm-dxi information
+  entry                     Queued terminal entries
+  environment               Environmental monitor statistics
+  ephone                    Show all or one ephone status
+  ephone-dn                 Show all or one IP phone line
+  ephone-hunt               Show all or one hunt group
+  errdisable                Error disable
+  event                     Event related commands
+  event-manager             Event manager information
+  exception                 exception information
+  fb-its-log                Call-Manager-Fallback or IP Telephony Service Log
+  file                      Show filesystem information
+  flash:                    display information about flash: file system
+  flow-sampler              Display the flow samplers configured
+  frame-relay               Frame-Relay information
+  funi                      FUNI information
+  gateway                   Show status of gateway
+  glbp                      GLBP information
+  h323                      Show H.323 VoIP information
+  hardware                  Hardware specific information
+  history                   Display the session command history
+  hosts                     IP domain-name, lookup style, nameservers, and host
+                            table
+  html                      HTML helper commands
+  http                      Display HTTP info
+  idb                       List of Interface Descriptor Blocks
+  interfaces                Interface status and configuration
+  inventory                 Show the physical inventory
+  ip                        IP information
+  isis                      IS-IS routing information
+  iua                       ISDN User Adaptation Layer information
+  key                       Key information
+  kron                      Kron Subsystem
+  l2cac                     L2 CAC
+  l2tun                     Layer 2 tunnel information
+  line                      TTY line information
+  llc2                      IBM LLC2 circuit information
+  location                  Display the system location
+  logging                   Show the contents of logging buffers
+  login                     Display Secure Login Configurations and State
+  mac-address-table         MAC forwarding table
+  management                Display the management applications
+  media                     Display media related information 
+  memory                    Memory statistics
+  mgcp                      Display Media Gateway Control Protocol information 
+  microcode                 show configured microcode for downloadable hardware
+  mls                       multilayer switching information
+  mmi                       mmi configuration
+  modem                     Show modem
+  modemcap                  Show Modem Capabilities database
+  monitor                   Monitoring different system events
+  mpoa                      MPOA show commands
+  mrcp                      MRCP information
+  mwi                       mwi related information
+  nbf                       NBF (NetBEUI) information
+  netbios-cache             NetBIOS name cache contents
+  ntp                       Network time protocol
+  num-exp                   Number Expansion (Speed Dial) information
+  oer                       Optimized Exit Routing information
+  parser                    Display parser information
+  pas                       Port Adaptor Information
+  pci                       PCI Information
+  platform                  Show platform information
+  pm                        Show Port Manager commands
+  policy-manager            Policy Manager
+  policy-map                Show QoS Policy Map
+  ppp                       PPP parameters and statistics
+  pppatm                    PPP over ATM
+  pppoe                     PPPoE information
+  printers                  Show LPD printer information
+  privilege                 Show current privilege level
+  processes                 Active process statistics
+  protocols                 Active network routing protocols
+  qdm                       Show information about QoS Device Manager
+  queue                     Show queue contents
+  queueing                  Show queueing configuration
+  radius                    Shows radius information
+  random-detect-group       display random-detect group
+  rbscp                     RBSCP information
+  region                    Region Manager Status
+  registry                  Function registry information
+  reload                    Scheduled reload information
+  rhosts                    Remote-host+user equivalences
+  rif                       RIF cache entries
+  rlm                       Show RLM
+  rmon                      rmon statistics
+  rom-monitor               show ROMMON region information
+  route-map                 route-map information
+  rpms-proc                 RPMS Process Information
+  rtpspi                    RTP Service Provider Interface
+  rtr                       Service Assurance Agent (SAA)
+  rtsp                      Real Time Streaming Protocol information
+  rudpv1                    Rudpv1 information
+  running-config            Current operating configuration
+  saa                       Service Assurance Agent information
+  sccp                      Display Skinny Client Control Protocol information 
+  scp                       SCP commands
+  sdllc                     Display sdlc - llc2 conversion information
+  sdspfarm                  Show dspfarm status from SCCP server
+  secure                    Show secure image and configuration archive
+  sessions                  Information about Telnet connections
+  sgbp                      SGBP group information
+  sip-ua                    Show SIP User Agent
+  slm                       XML data structure information
+  smf                       Software MAC filter
+  snapshot                  Snapshot parameters and statistics
+  snmp                      snmp statistics
+  sntp                      Simple network time protocol
+  source-bridge             Source-bridge parameters and statistics
+  spanning-tree             Spanning tree topology
+  srcp                      Display SRCP Protocol information 
+  ssh                       Status of SSH server connections
+  ssl                       Show SSL command
+  sss                       SSS Information
+  stacks                    Process stack utilization
+  standby                   Hot Standby Router Protocol (HSRP) information
+  startup-config            Contents of startup configuration
+  storm-control             Show packet storm control configuration
+  subscriber-policy         Subscriber policy
+  subscription              Subscription information to show
+  subsys                    Show subsystem information
+  table-map                 Show Table Map
+  tacacs                    Shows tacacs+ server statistics 
+  tarp                      TARP information
+  tcp                       Status of TCP connections
+  tdm                       TDM connection information
+  tech-support              Show system information for Tech-Support
+  telephony-service         Show Cisco IOS Telephony Service Configuration &
+                            Stats
+  template                  Template information
+  terminal                  Display terminal configuration parameters
+  tgrep                     Show TGREP information
+  time-range                Time range
+  track                     Tracking information
+  traffic-shape             traffic rate shaping configuration
+  translate                 Protocol translation information
+  translation-rule          Show translation rule table
+  trunk                     Trunk info
+  users                     Display information about terminal lines
+  vc-group                  Show VC Group
+  version                   System hardware and software status
+  vlan-range                VLAN Range
+  vlan-switch               VTP VLAN status
+  vlans                     Virtual LANs Information
+  voice                     Voice port configuration & stats
+  voip                      Voice over Internet Protocol information
+  vpdn                      VPDN information
+  vrrp                      VRRP information
+  vsp                       Voice Streaming Processing information
+  vtemplate                 Virtual Template interface information
+  vtp                       VTP information
+  warm-reboot               Show Warm Reboot related information
+  whoami                    Info on current tty line
+  wrr-queue                 WRR queue
+  x25                       X.25 information
+  x29                       X.29 information
+
+QIKROUTER#show q qo
+QIKROUTER#show qo    w ip ?
+  access-lists            List IP access lists
+  accounting              The active IP accounting database
+  aliases                 IP alias table
+  arp                     IP ARP table
+  as-path-access-list     List AS path access lists
+  bgp                     BGP information
+  cache                   IP fast-switching route cache
+  cef                     Cisco Express Forwarding
+  community-list          List community-list
+  dhcp                    Show items in the DHCP database
+  dns                     Show DNS zone information
+  dvmrp                   DVMRP information
+  eigrp                   IP-EIGRP show commands
+  extcommunity-list       List extended-community list
+  flow                    NetFlow switching
+  helper-address          helper-address table
+  http                    HTTP information
+  igmp                    IGMP information
+  interface               IP interface status and configuration
+  irdp                    ICMP Router Discovery Protocol
+  local                   IP local options
+  masks                   Masks associated with a network
+  mcache                  IP multicast fast-switching cache
+  mobile                  IP Mobility information
+  mpacket                 Display possible duplicate multicast packets
+  mrm                     IP Multicast Routing Monitor information
+  mroute                  IP multicast routing table
+  msdp                    Multicast Source Discovery Protocol (MSDP)
+  mtag                    IP Multicast Tagswitching TIB
+  multicast               Multicast global information
+  nat                     IP NAT information
+  nbar                    Network-Based Application Recognition
+  nhrp                    NHRP information
+  ospf                    OSPF information
+  pgm                     PGM Reliable Transport Protocol
+  pim                     PIM information
+  policy                  Policy routing
+  policy-list             List IP Policy list
+  prefix-list             List IP prefix lists
+  protocols               IP routing protocol process parameters and statistics
+  redirects               IP redirects
+  rip                     IP RIP show commands
+  route                   IP routing table
+  rpf                     Display RPF information for multicast source
+  rsvp                    RSVP information
+  rtp                     RTP/UDP/IP header-compression statistics
+  sap                     Session Announcement Protocol cache
+  sctp                    SCTP information
+  snat                    IP NAT SNAT information
+  sockets                 Open IP sockets
+  source-track            IP Source Tracker information
+  ssh                     Information on SSH
+  tcp                     TCP/IP header-compression statistics
+  traffic                 IP protocol statistics
+  traffic-export          Show ip traffic-export statistics
+  trigger-authentication  Trigger-authentication host table
+  vrf                     VPN Routing/Forwarding instance information
+  wccp                    WCCP information
+
+QIKROUTER#show ip poli
+QIKROUTER#show ip policy i
+QIKROUTER#show ip policy i   li
+QIKROUTER#show ip policy li   -
+QIKROUTER#show ip policy-list 
+QIKROUTER#sh
+QIKROUTER#show cl
+QIKROUTER#show clas
+QIKROUTER#show class-map 
+ Class Map match-all qikqos (id 1)
+   Match access-group  10 
+   Match any 
+   Match input-interface FastEthernet0/1
+
+ Class Map match-any class-default (id 0)
+   Match any 
+
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#confi
+QIKROUTER#configure t
+Enter configuration commands, one per line.  End with CNTL/Z.
+QIKROUTER(config)#en
+QIKROUTER(config)#en  ol  poli
+QIKROUTER(config)#policy-map qikmap
+QIKROUTER(config-pmap)#cl
+QIKROUTER(config-pmap)#class qikqos
+QIKROUTER(config-pmap-c)#?
+QoS policy-map class configuration commands:
+  bandwidth        Bandwidth
+  compression      Activate Compression
+  drop             Drop all packets
+  exit             Exit from QoS class action configuration mode
+  netflow-sampler  NetFlow action
+  no               Negate or set default values of a command
+  police           Police
+  priority         Strict Scheduling Priority for this Class
+  queue-limit      Queue Max Threshold for Tail Drop
+  random-detect    Enable Random Early Detection as drop policy
+  service-policy   Configure Flow Next
+  set              Set QoS values
+  shape            Traffic Shaping
+
+QIKROUTER(config-pmap-c)#exit
+QIKROUTER(config-pmap)#exit
+QIKROUTER(config)#inter
+QIKROUTER(config)#interface fa
+QIKROUTER(config)#interface fastEthernet 0/1
+QIKROUTER(config-if)#ser
+QIKROUTER(config-if)#service-policy ?
+  history  Keep history of QoS metrics
+  input    Assign policy-map to the input of an interface
+  output   Assign policy-map to the output of an interface
+
+QIKROUTER(config-if)#service-policy ou
+QIKROUTER(config-if)#service-policy output ?
+  WORD  policy-map name
+
+QIKROUTER(config-if)#service-policy output qikmap
+QIKROUTER(config-if)#?
+Interface configuration commands:
+  access-expression       Build a bridge boolean access expression
+  arp                     Set arp type (arpa, probe, snap) or timeout
+  auto                    Configure Automation
+  backup                  Modify backup parameters
+  bandwidth               Set bandwidth informational parameter
+  bgp-policy              Apply policy propagated by bgp community string
+  bridge-group            Transparent bridging interface parameters
+  carrier-delay           Specify delay for interface transitions
+  cdp                     CDP interface subcommands
+  clns                    CLNS interface subcommands
+  cmns                    OSI CMNS
+  custom-queue-list       Assign a custom queue list to an interface
+  dampening               Enable event dampening
+  default                 Set a command to its defaults
+  delay                   Specify interface throughput delay
+  description             Interface specific description
+  dot1q                   dot1q interface configuration commands
+  dot1x                   Interface Config Commands for 802.1x
+  duplex                  Configure duplex operation.
+  exit                    Exit from interface configuration mode
+  fair-queue              Enable Fair Queuing on an Interface
+  flow-sampler            Attach flow sampler to the interface
+  full-duplex             Configure full-duplex operational mode
+  glbp                    Gateway Load Balancing Protocol interface commands
+  h323-gateway            Configure H323 Gateway
+  half-duplex             Configure half-duplex and related commands
+  help                    Description of the interactive help system
+  hold-queue              Set hold queue depth
+  ip                      Interface Internet Protocol config commands
+  isis                    IS-IS commands
+  iso-igrp                ISO-IGRP interface subcommands
+  keepalive               Enable keepalive
+  llc2                    LLC2 Interface Subcommands
+  load-interval           Specify interval for load calculation for an
+                          interface
+  logging                 Configure logging for interface
+  loopback                Configure internal loopback on an interface
+  mac-address             Manually set interface MAC address
+  max-reserved-bandwidth  Maximum Reservable Bandwidth on an Interface
+  mls                     mls sub/interface commands
+  mop                     DEC MOP server commands
+  mpoa                    MPOA interface configuration commands
+  mtu                     Set the interface Maximum Transmission Unit (MTU)
+  netbios                 Use a defined NETBIOS access list or enable
+                          name-caching
+  no                      Negate a command or set its defaults
+  ntp                     Configure NTP
+  pppoe                   pppoe interface subcommands
+  pppoe-client            pppoe client
+  priority-group          Assign a priority group to an interface
+  random-detect           Enable Weighted Random Early Detection (WRED) on an
+                          Interface
+  rate-limit              Rate Limit
+  routing                 Per-interface routing configuration
+  service-policy          Configure QoS Service Policy
+  shutdown                Shutdown the selected interface
+  snapshot                Configure snapshot support on the interface
+  snmp                    Modify SNMP interface parameters
+  speed                   Configure speed operation.
+  standby                 HSRP interface configuration commands
+  tarp                    TARP interface subcommands
+  timeout                 Define timeout values for this interface
+  traffic-shape           Enable Traffic Shaping on an Interface or
+                          Sub-Interface
+  transmit-interface      Assign a transmit interface to a receive-only
+                          interface
+  tx-ring-limit           Configure PA level transmit ring limit
+  vlan-id                 Process VLAN-encapsulated packets with a specific
+                          VLAN ID
+  vlan-range              Process VLAN-encapsulated packets with a range of
+                          VLAN IDs
+  vrrp                    VRRP Interface configuration commands
+  xconnect                Xconnect commands
+
+QIKROUTER(config-if)#exit
+QIKROUTER(config)#exit
+QIKROUTER#
+*Nov 22 12:02:51.588: %SYS-5-CONFIG_I: Configured from console by console
+QIKROUTER#sh
+QIKROUTER#show cla
+QIKROUTER#show class-map 
+ Class Map match-all qikqos (id 1)
+   Match access-group  10 
+   Match any 
+   Match input-interface FastEthernet0/1
+
+ Class Map match-any class-default (id 0)
+   Match any 
+
+QIKROUTER#sh
+QIKROUTER#show pol
+QIKROUTER#show policy-map
+  Policy Map qikmap
+    Class qikqos
+
+QIKROUTER#sh
+QIKROUTER#show ip
+QIKROUTER#show ip int
+QIKROUTER#show ip interface ?
+  Async              Async interface
+  BVI                Bridge-Group Virtual Interface
+  CDMA-Ix            CDMA Ix interface
+  CTunnel            CTunnel interface
+  Dialer             Dialer interface
+  FastEthernet       FastEthernet IEEE 802.3
+  Lex                Lex interface
+  Loopback           Loopback interface
+  MFR                Multilink Frame Relay bundle interface
+  Multilink          Multilink-group interface
+  Null               Null interface
+  Tunnel             Tunnel interface
+  Vif                PGM Multicast Host interface
+  Virtual-Access     Virtual Access interface
+  Virtual-PPP        Virtual PPP interface
+  Virtual-Template   Virtual Template interface
+  Virtual-TokenRing  Virtual TokenRing
+  brief              Brief summary of IP status and configuration
+  |                  Output modifiers
+  <cr>
+
+QIKROUTER#show ip interface bri
+QIKROUTER#show ip interface brief ?
+  Async              Async interface
+  BVI                Bridge-Group Virtual Interface
+  CDMA-Ix            CDMA Ix interface
+  CTunnel            CTunnel interface
+  Dialer             Dialer interface
+  FastEthernet       FastEthernet IEEE 802.3
+  Lex                Lex interface
+  Loopback           Loopback interface
+  MFR                Multilink Frame Relay bundle interface
+  Multilink          Multilink-group interface
+  Null               Null interface
+  Tunnel             Tunnel interface
+  Vif                PGM Multicast Host interface
+  Virtual-Access     Virtual Access interface
+  Virtual-PPP        Virtual PPP interface
+  Virtual-Template   Virtual Template interface
+  Virtual-TokenRing  Virtual TokenRing
+  |                  Output modifiers
+  <cr>
+
+QIKROUTER#show ip interface brief fas
+QIKROUTER#show ip interface brief fastEthernet ?
+  <0-4>  FastEthernet interface number
+
+QIKROUTER#show ip interface brief fastEthernet 0/1
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/1            192.168.0.1     YES NVRAM  up                    up      
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#sh
+QIKROUTER#show ip int
+QIKROUTER#show ip interface br
+QIKROUTER#show ip interface brief 
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES NVRAM  up                    up      
+FastEthernet0/1            192.168.0.1     YES NVRAM  up                    up      
+Virtual-Access1            unassigned      YES unset  up                    up      
+Dialer1                    103.48.196.202  YES IPCP   up                    up      
+QIKROUTER#
+*Nov 22 12:10:24.128: %DIALER-6-UNBIND: Interface Vi1 unbound from profile Di1
+*Nov 22 12:10:24.188: %LINK-3-UPDOWN: Interface Virtual-Access1, changed state to down
+*Nov 22 12:10:25.128: %LINEPROTO-5-UPDOWN: Line protocol on Interface Virtual-Access1, changed state to down
+*Nov 22 12:10:46.196: %DIALER-6-BIND: Interface Vi1 bound to profile Di1
+*Nov 22 12:10:46.200: %LINK-3-UPDOWN: Interface Virtual-Access1, changed state to up
+*Nov 22 12:10:47.208: %LINEPROTO-5-UPDOWN: Line protocol on Interface Virtual-Access1, changed state to up
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#sh
+QIKROUTER#show poli
+QIKROUTER#show policy-ma  ?
+policy-manager  policy-map  
+
+QIKROUTER#show policy-ma
+QIKROUTER#show policy-map
+QIKROUTER#show policy-map 
+  Policy Map qikmap
+    Class qikqos
+
+QIKROUTER#show policy-map   na
+QIKROUTER#show policy-manager 
+% Incomplete command.
+
+QIKROUTER#show policy-manager ?
+  events     Events Statistics
+  policy     Policy Database
+  subsystem  System and subsystem information
+
+QIKROUTER#show policy-manager eve
+QIKROUTER#show policy-manager events ?
+  |  Output modifiers
+  <cr>
+
+QIKROUTER#show policy-manager events 
+Event Statistics
+0          catastrophic
+0          critical
+0          high
+0          medium
+0          low
+0          positive
+
+The following events were discarded
+0          unknown
+
+Event buffer pool
+Number of free event buffers = 300
+Number of events awaiting processing by Policy Manager process = 0
+
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#
+QIKROUTER#ping 192.168.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+QIKROUTER#ping 192.168.0.1   1.0
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.0, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+QIKROUTER#ping 192.168.1.0 1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+QIKROUTER#ping 192.168.1.100.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+QIKROUTER#

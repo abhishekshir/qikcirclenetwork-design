@@ -1,0 +1,126 @@
+Router#CONFI
+Router#CONFIgure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#AC
+Router(config)#ACcess-list LI
+Router(config)#ACcess-list 1 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+Router(config)#ACcess-list 1 PE
+Router(config)#ACcess-list 1 PErmit ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+Router(config)#ACcess-list 1 PErmit 10.0.0.0 0.255.255.255 ?
+  <cr>
+Router(config)#ACcess-list 1 PErmit 10.0.0.0 0.255.255.255 
+Router(config)#NAT
+Router(config)#IP NA
+Router(config)#IP NA
+Router(config)#IP NAT ?
+  inside   Inside address translation
+  outside  Outside address translation
+  pool     Define pool of addresses
+Router(config)#IP NAT POO
+Router(config)#IP NAT POOl JETKING ?
+  A.B.C.D  Start IP address
+Router(config)#IP NAT POOl JETKING 122.1.1.1 122.1.1.1N
+Router(config)#IP NAT POOl JETKING 122.1.1.1 122.1.1.1 NE
+Router(config)#IP NAT POOl JETKING 122.1.1.1 122.1.1.1 NEtmask 255.255.255.0 ?
+  <cr>
+Router(config)#IP NAT POOl JETKING 122.1.1.1 122.1.1.1 NEtmask 255.255.255.0 
+Router(config)#IP N
+Router(config)#IP NA
+Router(config)#IP NAT IN
+Router(config)#IP NAT INside S
+Router(config)#IP NAT INside Source LI
+Router(config)#IP NAT INside Source LIst 1 POO
+Router(config)#IP NAT INside Source LIst 1 POOl JETKING ?
+  overload  Overload an address translation
+  <cr>
+Router(config)#IP NAT INside Source LIst 1 POOl JETKING OV
+Router(config)#IP NAT INside Source LIst 1 POOl JETKING OVerload 
+Router(config)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#SH IP NAT TR
+Router#SH IP NAT TRanslations 
+Router#CONFI
+Router#CONFIgure 
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#INT F0/0
+Router(config-if)#IP NAT IN
+Router(config-if)#IP NAT INside 
+Router(config-if)#Z
+% Incomplete command.
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#CONF
+Router(config-if)#CONF
+                   ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#CONFI
+Router(config-if)#CONFI
+                   ^
+% Invalid input detected at '^' marker.
+	
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#EX
+Router(config-if)#EXit 
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#INT S0/0
+Router(config-if)#IP NAT OU
+Router(config-if)#IP NAT OUtside 
+Router(config-if)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#SH IP NAT TRanslations 
+Pro  Inside global     Inside local       Outside local      Outside global
+icmp 122.1.1.1:5       10.0.0.2:5         204.1.1.10:5       204.1.1.10:5
+icmp 122.1.1.1:6       10.0.0.2:6         204.1.1.10:6       204.1.1.10:6
+icmp 122.1.1.1:7       10.0.0.2:7         204.1.1.10:7       204.1.1.10:7
+icmp 122.1.1.1:8       10.0.0.2:8         204.1.1.10:8       204.1.1.10:8
+tcp 122.1.1.1:1026     10.0.0.3:1026      204.1.1.10:80      204.1.1.10:80
+
+Router#
