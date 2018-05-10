@@ -1,8 +1,0 @@
-Router> enable
-Router# configure terminal
-Router(config)# ip flow-top-talkers
-Router(config-flow-top-talkers)# top 50
-Router(config-flow-top-talkers)# sort-by packets
-Router(config-flow-top-talkers)# cache-timeout 30000
-Router(config-flow-top-talkers)# end
-Router#show ip flow top-talkers
